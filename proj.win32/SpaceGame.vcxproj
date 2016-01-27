@@ -1,0 +1,315 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{76A39BB2-9B84-4C65-98A5-654D86B86F2A}</ProjectGuid>
+    <RootNamespace>test_win32</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '12.0'">v120</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '12.0' and exists('$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A')">v120_xp</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '14.0'">v140</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '14.0' and exists('$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A')">v140_xp</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '12.0'">v120</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '12.0' and exists('$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A')">v120_xp</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '14.0'">v140</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '14.0' and exists('$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A')">v140_xp</PlatformToolset>
+    <CLRSupport>false</CLRSupport>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" />
+    <Import Project="cocos2dx.props" />
+    <Import Project="$(COCOS_X_ROOT)\cocos2d-x-3.10\cocos\2d\cocos2d_headers.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" />
+    <Import Project="cocos2dx.props" />
+    <Import Project="$(COCOS_X_ROOT)\cocos2d-x-3.10\cocos\2d\cocos2d_headers.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>12.0.21005.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)$(Configuration).win32\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Configuration).win32\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)$(Configuration).win32\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Configuration).win32\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LibraryPath>$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LibraryPath>$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(COCOS_X_ROOT)\cocos2d-x-3.10\cocos\audio\include;$(COCOS_X_ROOT)\cocos2d-x-3.10\external;$(COCOS_X_ROOT)\cocos2d-x-3.10\external\chipmunk\include\chipmunk;$(COCOS_X_ROOT)\cocos2d-x-3.10\extensions;..\Classes;..;%(AdditionalIncludeDirectories);$(_COCOS_HEADER_WIN32_BEGIN);$(_COCOS_HEADER_WIN32_END)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_USE_MATH_DEFINES;GL_GLEXT_PROTOTYPES;CC_ENABLE_CHIPMUNK_INTEGRATION=1;COCOS2D_DEBUG=1;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <DisableSpecificWarnings>4267;4251;4244;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>%(AdditionalDependencies);$(_COCOS_LIB_WIN32_BEGIN);$(_COCOS_LIB_WIN32_END)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(ProjectName).exe</OutputFile>
+      <AdditionalLibraryDirectories>$(OutDir);%(AdditionalLibraryDirectories);$(_COCOS_LIB_PATH_WIN32_BEGIN);$(_COCOS_LIB_PATH_WIN32_END)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <PreLinkEvent>
+      <Command>if not exist "$(OutDir)" mkdir "$(OutDir)"
+xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
+</Command>
+    </PreLinkEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup>
+    <CustomBuildStep>
+      <Command>if not exist "$(OutDir)" mkdir "$(OutDir)"
+xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
+      </Command>
+      <Outputs>$(TargetName).cab</Outputs>
+      <Inputs>$(TargetFileName)</Inputs>
+    </CustomBuildStep>
+    <ClCompile>
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>$(COCOS_X_ROOT)\cocos2d-x-3.10\cocos\audio\include;$(COCOS_X_ROOT)\cocos2d-x-3.10\external;$(COCOS_X_ROOT)\cocos2d-x-3.10\external\chipmunk\include\chipmunk;$(COCOS_X_ROOT)\cocos2d-x-3.10\extensions;..\Classes;..;%(AdditionalIncludeDirectories);$(_COCOS_HEADER_WIN32_BEGIN);$(_COCOS_HEADER_WIN32_END)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USE_MATH_DEFINES;GL_GLEXT_PROTOTYPES;CC_ENABLE_CHIPMUNK_INTEGRATION=1;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4267;4251;4244;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>libcurl_imp.lib;websockets.lib;%(AdditionalDependencies);$(_COCOS_LIB_WIN32_BEGIN);$(_COCOS_LIB_WIN32_END)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(ProjectName).exe</OutputFile>
+      <AdditionalLibraryDirectories>$(OutDir);%(AdditionalLibraryDirectories);$(_COCOS_LIB_PATH_WIN32_BEGIN);$(_COCOS_LIB_PATH_WIN32_END)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <PreLinkEvent>
+      <Command>if not exist "$(OutDir)" mkdir "$(OutDir)"
+xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
+</Command>
+    </PreLinkEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Classes\Advanced_Gameobject.cpp" />
+    <ClCompile Include="..\Classes\AppDelegate.cpp" />
+    <ClCompile Include="..\Classes\EnemyGameObject.cpp" />
+    <ClCompile Include="..\Classes\HelloWorldScene.cpp" />
+    <ClCompile Include="..\Classes\Hero.cpp" />
+    <ClCompile Include="..\Classes\Level.cpp" />
+    <ClCompile Include="..\Classes\Pasage.cpp" />
+    <ClCompile Include="..\Classes\Physic.cpp" />
+    <ClCompile Include="..\Classes\Projectile.cpp" />
+    <ClCompile Include="..\Classes\Robot_Soldier.cpp" />
+    <ClCompile Include="..\Classes\SpaceGameLayer.cpp" />
+    <ClCompile Include="..\Classes\Space_Level.cpp" />
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Classes\Advanced_Gameobject.h" />
+    <ClInclude Include="..\Classes\AppDelegate.h" />
+    <ClInclude Include="..\Classes\EnemyGameObject.h" />
+    <ClInclude Include="..\Classes\globals.h" />
+    <ClInclude Include="..\Classes\HelloWorldScene.h" />
+    <ClInclude Include="..\Classes\Hero.h" />
+    <ClInclude Include="..\Classes\Level.h" />
+    <ClInclude Include="..\Classes\Passage.h" />
+    <ClInclude Include="..\Classes\Physic.h" />
+    <ClInclude Include="..\Classes\Projectile.h" />
+    <ClInclude Include="..\Classes\Robot_Soldier.h" />
+    <ClInclude Include="..\Classes\SpaceGameLayer.h" />
+    <ClInclude Include="..\Classes\Space_Level.h" />
+    <ClInclude Include="main.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="game.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Resources\a.tmx" />
+    <None Include="..\Resources\a0.tmx" />
+    <None Include="..\Resources\b.tmx" />
+    <None Include="..\Resources\boost.aif" />
+    <None Include="..\Resources\bunker_level1.tmx" />
+    <None Include="..\Resources\c.tmx" />
+    <None Include="..\Resources\Cry.aif" />
+    <None Include="..\Resources\c_tresh1.tmx" />
+    <None Include="..\Resources\D.tmx" />
+    <None Include="..\Resources\Dawn.aif" />
+    <None Include="..\Resources\db32.ase" />
+    <None Include="..\Resources\E.tmx" />
+    <None Include="..\Resources\explosion.aif" />
+    <None Include="..\Resources\f.tmx" />
+    <None Include="..\Resources\hall.tmx" />
+    <None Include="..\Resources\jet_pack_boost.aif" />
+    <None Include="..\Resources\jet_pack_hum.aif" />
+    <None Include="..\Resources\level4.tmx" />
+    <None Include="..\Resources\MainScene.csb" />
+    <None Include="..\Resources\Missile.plist" />
+    <None Include="..\Resources\moAndAnim.plist" />
+    <None Include="..\Resources\patrol_ufo.plist" />
+    <None Include="..\Resources\planet_surface.tmx" />
+    <None Include="..\Resources\planet_surface2.tmx" />
+    <None Include="..\Resources\planet_surface3.tmx" />
+    <None Include="..\Resources\player_stats.plist" />
+    <None Include="..\Resources\PTSH_new_colors.plist" />
+    <None Include="..\Resources\red_planet.pxi" />
+    <None Include="..\Resources\res\b.tmx" />
+    <None Include="..\Resources\Robot_Soldier.plist" />
+    <None Include="..\Resources\solbrain-animations.plist" />
+    <None Include="..\Resources\solbrain.plist" />
+    <None Include="..\Resources\space_explorer2.plist" />
+    <None Include="..\Resources\Space_Hero.plist" />
+    <None Include="..\Resources\Space_Hero2.plist" />
+    <None Include="..\Resources\TO-DO" />
+    <None Include="..\Resources\too_quiet_in_here.aif" />
+    <None Include="..\Resources\trial_dungeon.tmx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\Resources\3os3TE.png" />
+    <Image Include="..\Resources\8ex7eq.png" />
+    <Image Include="..\Resources\bellafigur.png" />
+    <Image Include="..\Resources\black.png" />
+    <Image Include="..\Resources\brainA.png" />
+    <Image Include="..\Resources\brain_sucker.png" />
+    <Image Include="..\Resources\CaveD.png" />
+    <Image Include="..\Resources\CaveE.png" />
+    <Image Include="..\Resources\CaveEMirror.png" />
+    <Image Include="..\Resources\CaveEMirrorL.png" />
+    <Image Include="..\Resources\CaveEMirrorR.png" />
+    <Image Include="..\Resources\caves(delete).png" />
+    <Image Include="..\Resources\caves_big.png" />
+    <Image Include="..\Resources\CloseNormal.png" />
+    <Image Include="..\Resources\CloseSelected.png" />
+    <Image Include="..\Resources\crusified.png" />
+    <Image Include="..\Resources\crystalrocks_zpse950c7a8.png" />
+    <Image Include="..\Resources\db32.png" />
+    <Image Include="..\Resources\dessert_mountin.png" />
+    <Image Include="..\Resources\dungeon_tiles.png" />
+    <Image Include="..\Resources\Exit.png" />
+    <Image Include="..\Resources\exterior-parallaxBG1.png" />
+    <Image Include="..\Resources\fjTLmS.png" />
+    <Image Include="..\Resources\FlowerSHOTA.png" />
+    <Image Include="..\Resources\green_liquid.png" />
+    <Image Include="..\Resources\heart.png" />
+    <Image Include="..\Resources\HelloWorld.png" />
+    <Image Include="..\Resources\housebig.png" />
+    <Image Include="..\Resources\jetpack_logo0.png" />
+    <Image Include="..\Resources\jetpack_logo1.png" />
+    <Image Include="..\Resources\jet_pack_instructions.png" />
+    <Image Include="..\Resources\jet_pack_instructions2.png" />
+    <Image Include="..\Resources\JukeboxB.png" />
+    <Image Include="..\Resources\Jungle_temple.gif" />
+    <Image Include="..\Resources\living_plant.png" />
+    <Image Include="..\Resources\Missile.png" />
+    <Image Include="..\Resources\moAndAnim.png" />
+    <Image Include="..\Resources\opp_trunk.png" />
+    <Image Include="..\Resources\patrol.png" />
+    <Image Include="..\Resources\patrol_1.png" />
+    <Image Include="..\Resources\patrol_ufo.png" />
+    <Image Include="..\Resources\pink_sqr.png" />
+    <Image Include="..\Resources\pipes_multi.png" />
+    <Image Include="..\Resources\pipe_resource.png" />
+    <Image Include="..\Resources\Planet.png" />
+    <Image Include="..\Resources\platforms_cloud.png" />
+    <Image Include="..\Resources\PTSH_new_colors.png" />
+    <Image Include="..\Resources\red_planet.png" />
+    <Image Include="..\Resources\rLJjmOe.png" />
+    <Image Include="..\Resources\Robot_Soldier.png" />
+    <Image Include="..\Resources\SIGN.png" />
+    <Image Include="..\Resources\solbrain.png" />
+    <Image Include="..\Resources\SpaceBGC.png" />
+    <Image Include="..\Resources\SpaceBGC_recolor.png" />
+    <Image Include="..\Resources\SpaceBGC_recolor2.png" />
+    <Image Include="..\Resources\SpaceExplorer2.png" />
+    <Image Include="..\Resources\SpaceshipA.png" />
+    <Image Include="..\Resources\SpaceshipB.png" />
+    <Image Include="..\Resources\SpaceshipbrookenA.png" />
+    <Image Include="..\Resources\SpaceTilesV1.png" />
+    <Image Include="..\Resources\space_back3.png" />
+    <Image Include="..\Resources\space_flower.png" />
+    <Image Include="..\Resources\Space_Hero.png" />
+    <Image Include="..\Resources\Space_Hero2.png" />
+    <Image Include="..\Resources\space_mountin.png" />
+    <Image Include="..\Resources\space_pig1.png" />
+    <Image Include="..\Resources\stoneA.png" />
+    <Image Include="..\Resources\stone_back.png" />
+    <Image Include="..\Resources\tileSet.png" />
+    <Image Include="..\Resources\Tileset1_8x8.png" />
+    <Image Include="..\Resources\Tileset2_8x8.png" />
+    <Image Include="..\Resources\Untitled.png" />
+    <Image Include="..\Resources\vauge_mountin.png" />
+    <Image Include="..\Resources\vauge_mountin_gray.png" />
+    <Image Include="..\Resources\wnhQuh.png" />
+    <Image Include="..\Resources\Zombie.png" />
+    <Image Include="..\Resources\ZombiJ.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="..\Resources\78.mp3" />
+    <Media Include="..\Resources\Corp_Waltz.mp3" />
+    <Media Include="..\Resources\Hope.mp3" />
+    <Media Include="..\Resources\Space_Adventure.mp3" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

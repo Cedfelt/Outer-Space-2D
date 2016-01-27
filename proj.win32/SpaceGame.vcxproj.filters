@@ -1,0 +1,482 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="win32">
+      <UniqueIdentifier>{84a8ebd7-7cf0-47f6-b75e-d441df67da40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resource">
+      <UniqueIdentifier>{715254bc-d70b-4ec5-bf29-467dd3ace079}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{bb6c862e-70e9-49d9-81b7-3829a6f50471}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Levels">
+      <UniqueIdentifier>{de735ae7-4e5d-484e-ba37-92fc0b6be56f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\GameObjects">
+      <UniqueIdentifier>{bc71a823-6259-49f4-9ac2-2acc874c3a60}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\GameObjects\Enemies">
+      <UniqueIdentifier>{68668e9e-3b5d-4093-95de-23108949f171}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Logic">
+      <UniqueIdentifier>{77a50ed0-f798-4903-b446-5752b6a31f68}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\GameObjects\Friendly">
+      <UniqueIdentifier>{41a28314-78ee-424e-8f80-788152436a2e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AppDelegate.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HelloWorldScene.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Space_Level.cpp">
+      <Filter>src\Levels</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\SpaceGameLayer.cpp">
+      <Filter>src\Levels</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Advanced_Gameobject.cpp">
+      <Filter>src\GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Level.cpp">
+      <Filter>src\Levels</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Hero.cpp">
+      <Filter>src\GameObjects\Friendly</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Physic.cpp">
+      <Filter>src\Logic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Pasage.cpp">
+      <Filter>src\GameObjects\Friendly</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\EnemyGameObject.cpp">
+      <Filter>src\GameObjects\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Robot_Soldier.cpp">
+      <Filter>src\GameObjects\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Projectile.cpp">
+      <Filter>src\GameObjects\Enemies</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="main.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AppDelegate.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HelloWorldScene.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Space_Level.h">
+      <Filter>src\Levels</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\SpaceGameLayer.h">
+      <Filter>src\Levels</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Advanced_Gameobject.h">
+      <Filter>src\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Level.h">
+      <Filter>src\Levels</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\globals.h">
+      <Filter>src\Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Hero.h">
+      <Filter>src\GameObjects\Friendly</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Physic.h">
+      <Filter>src\Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Passage.h">
+      <Filter>src\GameObjects\Friendly</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\EnemyGameObject.h">
+      <Filter>src\GameObjects\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Robot_Soldier.h">
+      <Filter>src\GameObjects\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Projectile.h">
+      <Filter>src\GameObjects\Enemies</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="game.rc">
+      <Filter>resource</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Resources\res\b.tmx">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\TO-DO">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\too_quiet_in_here.aif">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\trial_dungeon.tmx">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\a.tmx">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\a0.tmx">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\b.tmx">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\boost.aif">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\bunker_level1.tmx">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\c.tmx">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\c_tresh1.tmx">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\Cry.aif">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\D.tmx">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\Dawn.aif">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\db32.ase">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\E.tmx">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\explosion.aif">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\f.tmx">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\hall.tmx">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\jet_pack_boost.aif">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\jet_pack_hum.aif">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\level4.tmx">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\MainScene.csb">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\Missile.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\moAndAnim.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\patrol_ufo.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\planet_surface.tmx">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\planet_surface2.tmx">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\planet_surface3.tmx">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\player_stats.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\PTSH_new_colors.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\red_planet.pxi">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\Robot_Soldier.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\solbrain.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\solbrain-animations.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\space_explorer2.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\Space_Hero.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\Space_Hero2.plist">
+      <Filter>resource</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\Resources\stone_back.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\stoneA.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\tileSet.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\Tileset1_8x8.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\Tileset2_8x8.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\Untitled.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\vauge_mountin.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\vauge_mountin_gray.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\wnhQuh.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\Zombie.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\ZombiJ.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\3os3TE.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\8ex7eq.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\bellafigur.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\black.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\brain_sucker.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\brainA.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\CaveD.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\CaveE.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\CaveEMirror.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\CaveEMirrorL.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\CaveEMirrorR.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\caves(delete).png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\caves_big.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\CloseNormal.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\CloseSelected.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\crusified.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\crystalrocks_zpse950c7a8.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\db32.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\dessert_mountin.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\dungeon_tiles.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\Exit.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\exterior-parallaxBG1.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\fjTLmS.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\FlowerSHOTA.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\green_liquid.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\heart.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\HelloWorld.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\housebig.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\jet_pack_instructions.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\jet_pack_instructions2.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\jetpack_logo0.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\jetpack_logo1.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\JukeboxB.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\Jungle_temple.gif">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\living_plant.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\Missile.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\moAndAnim.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\opp_trunk.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\patrol.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\patrol_1.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\patrol_ufo.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\pink_sqr.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\pipe_resource.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\pipes_multi.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\Planet.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\platforms_cloud.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\PTSH_new_colors.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\red_planet.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\rLJjmOe.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\Robot_Soldier.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\SIGN.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\solbrain.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\space_back3.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\space_flower.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\Space_Hero.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\Space_Hero2.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\space_mountin.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\space_pig1.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\SpaceBGC.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\SpaceBGC_recolor.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\SpaceBGC_recolor2.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\SpaceExplorer2.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\SpaceshipA.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\SpaceshipB.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\SpaceshipbrookenA.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\SpaceTilesV1.png">
+      <Filter>resource</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="..\Resources\78.mp3">
+      <Filter>resource</Filter>
+    </Media>
+    <Media Include="..\Resources\Corp_Waltz.mp3">
+      <Filter>resource</Filter>
+    </Media>
+    <Media Include="..\Resources\Hope.mp3">
+      <Filter>resource</Filter>
+    </Media>
+    <Media Include="..\Resources\Space_Adventure.mp3">
+      <Filter>resource</Filter>
+    </Media>
+  </ItemGroup>
+</Project>
