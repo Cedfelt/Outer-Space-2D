@@ -1,54 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" width="250" height="60" tilewidth="8" tileheight="8">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="250" height="60" tilewidth="8" tileheight="8" nextobjectid="11">
  <properties>
   <property name="music_track" value="Hope.mp3"/>
  </properties>
- <tileset firstgid="1" name="Tileset1_8x8" tilewidth="8" tileheight="8">
+ <tileset firstgid="1" name="Tileset1_8x8" tilewidth="8" tileheight="8" tilecount="1696" columns="32">
   <image source="Tileset1_8x8.png" width="256" height="424"/>
  </tileset>
- <tileset firstgid="1697" name="Tileset2_8x8" tilewidth="8" tileheight="8">
+ <tileset firstgid="1697" name="Tileset2_8x8" tilewidth="8" tileheight="8" tilecount="1024" columns="32">
   <image source="Tileset2_8x8.png" width="256" height="256"/>
  </tileset>
- <tileset firstgid="2721" name="dessert_mountin" tilewidth="8" tileheight="8">
+ <tileset firstgid="2721" name="dessert_mountin" tilewidth="8" tileheight="8" tilecount="1184" columns="32">
   <image source="dessert_mountin.png" width="256" height="300"/>
  </tileset>
- <tileset firstgid="3905" name="vauge_mountin_gray" tilewidth="8" tileheight="8">
+ <tileset firstgid="3905" name="vauge_mountin_gray" tilewidth="8" tileheight="8" tilecount="1184" columns="32">
   <image source="vauge_mountin_gray.png" width="256" height="300"/>
  </tileset>
- <tileset firstgid="5089" name="vauge_mountin" tilewidth="8" tileheight="8">
+ <tileset firstgid="5089" name="vauge_mountin" tilewidth="8" tileheight="8" tilecount="1184" columns="32">
   <image source="vauge_mountin.png" width="256" height="300"/>
  </tileset>
- <tileset firstgid="6273" name="SpaceBGC_recolor" tilewidth="8" tileheight="8">
+ <tileset firstgid="6273" name="SpaceBGC_recolor" tilewidth="8" tileheight="8" tilecount="400" columns="20">
   <image source="SpaceBGC_recolor.png" width="160" height="160"/>
  </tileset>
- <tileset firstgid="6673" name="red_planet" tilewidth="8" tileheight="8">
+ <tileset firstgid="6673" name="red_planet" tilewidth="8" tileheight="8" tilecount="240" columns="16">
   <image source="red_planet.png" width="130" height="127"/>
  </tileset>
- <tileset firstgid="6913" name="crusified" tilewidth="8" tileheight="8">
+ <tileset firstgid="6913" name="crusified" tilewidth="8" tileheight="8" tilecount="16" columns="4">
   <image source="crusified.png" width="32" height="32"/>
  </tileset>
- <tileset firstgid="6929" name="housebig" tilewidth="8" tileheight="8">
+ <tileset firstgid="6929" name="housebig" tilewidth="8" tileheight="8" tilecount="256" columns="16">
   <image source="housebig.png" width="128" height="128"/>
  </tileset>
- <tileset firstgid="7185" name="db32" tilewidth="8" tileheight="8">
+ <tileset firstgid="7185" name="db32" tilewidth="8" tileheight="8" tilecount="36" columns="6">
   <image source="db32.png" width="48" height="48"/>
  </tileset>
- <tileset firstgid="7221" name="SpaceBGC_recolor2" tilewidth="8" tileheight="8">
+ <tileset firstgid="7221" name="SpaceBGC_recolor2" tilewidth="8" tileheight="8" tilecount="400" columns="20">
   <image source="SpaceBGC_recolor2.png" width="160" height="160"/>
  </tileset>
- <layer name="background3" width="250" height="60">
+ <layer name="background3" width="250" height="60" opacity="0.96">
   <data encoding="base64" compression="zlib">
-   eJztwzENAAAMA6AK2VX/ImtjByT0kqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqo+OpHwMaM=
+   eJztwTEBAAAAwqD1T20ND6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAvgzqYAAB
   </data>
  </layer>
  <layer name="background" width="250" height="60">
   <data encoding="base64" compression="zlib">
-   eJzt3NO2JUYAANETO5lYc4OJzTu2bdu2bdu2bVuxbds26zN6ddfDfq1PqOycmUxu5EFe5EN+FEBBFEJhFEFRFENxlEBJlEJplEFZZNuzZy+4XjmURwVURCVURhVURTVURw3URC3URh3URT3URwM0tGfPXpC9RmiMJmiKZmiOFmiJVmiNNmiLdmiPDuiITuiMLuhqz569IHvd0B090BO90Bt90Bf90B8DMBCDMBhDMBTDMBwjMNKePXtB9kZhNMZgLMZhPCZgIiZhMqZgKqZhOmZgJmZhNuZgrj179oLszcN8LMBCLMJiLMFSLMNyrMBKrMJqrMFarMN6bMBGe/bsBdnbhM3Ygq3Yhu3YgZ3Yhd3Yg73Yh/04gIM4hMM4gqP27NkLsncMx3ECJ/EIHsVjeBxP4Ek8hafxDJ7Fc3geL+BFvISX7dmzF2TvFbyK1/A63sCbeAtv4x28i/fwPj7Ah/gIH+MTfIrP8Lk9e/aC7H2BL/EVvsY3+Bbf4Xv8gB/xE37GL/gVv+F3/IE/8Rf+tmfPXpC9f/Av/kMmK5M5BafiNJyOM3AmzsLZOAfn4jycjwtwIS5Cjix79uyF2LsYl+BSXIbLcQWuxFW4GtfgWuREFq7D9bgBNyIXbsLN9uzZC7J3C27Fbbgdd+BO3IW7cQ/uxX24Hw/gQTyEh5GN3MiDvPbs2Quylw/5UQAFUQiFUQRFUQzFUQIlUQqlUQZlUQ7lUQEV7dmzF2SvEiqjCqqiGqqjBmqiFmqjDuqiHuqjARqiERqjCZras2cvyF4zNEcLtEQrtEYbtEU7tEcHdEQndEYXdEU3dEcP9LRnz16QvV7ojT7oi37ojwEYiEEYjCEYimEYjhEYiVEYjTEYa8+evSB74zAeEzARkzAZUzAV0zAdMzATszAbczAX8zAfC7DQnj17QfYWYTGWYCmWYTlWYCVWYTXWYC3WYT02YCM2YTO2YKs9e/aC7G3DduzATuzCbuzBXuzDfhzAQRzCYRzBURzDcZzASXv27AXZi+V/Zc+ePf9w9uyl3Ivlf2XPnj3/cPbspdyL5X9lz549/3D27KXci+V/Zc+ePf9w9uyl3Ivlf2XPnj3/cPbspdyL5X9lz549/3D27KXci+V/Zc+ePf9w9uyl3Ivlf2XPnj3/cPbspdyL5X9lz549/3D27KXci+V/Zc+ePf9w9uyl3Ivlf2XPnj3/cPbspdyL5X9lz549/3D27KXci+V/Zc+ePf9w9uyl3Ivlf2XPnj3/cPbspdyL5X9lz549/3D27KXci+V/Zc+ePf9w9uyl3Ivlf2XPnj3/cPbspdyL5X9lz549/3D27KXci+V/Zc+ePf9w9uyl3Ivlf2XPnj3/cPbspdz7H8Hqb7k=
+   eJztwTEBAAAAwqD1T20ND6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAvgzqYAAB
   </data>
  </layer>
  <layer name="background2" width="250" height="60">
   <data encoding="base64" compression="zlib">
-   eJztzePX1wcAQPFfdk/Pk23btm3btm3btm27oca4xaG2uNVQWw3V7h+x83117zmf1zcUMjMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzP7/4oUHgpFRhRERTRERwzERCzERhzERTzERxgSIBwRSIhESIwkSIpkSI4USIlUSI00SIt04f79+w/inx4ZkBGZkBlZkBXZkB05kBO5kBt5kBf5kB8FUBCFUBhFUBTFUBwlUBKlUBplUBbl/Pv3H8i/PCqgIiqhMqqgKqqhOmqgJmqhNuqgLuqhPhqgIRqhMZqgKZqhOVqgJVqhNdqgLdr59+8/kH97dEBHdEJndEFXdEN39EBP9EJv9EFf9EN/DMBADMJgDMFQDMNwjMBIjMJojMFYjPPv338g//GYgImYhMmYgqmYhumYgZmYhdmYg7mYh/lYgIVYhMVYgqVYhuVYgZVYhdVYg7VY59+//0D+67EBG7EJm7EFW7EN27EDO7ELu7EHe7EP+3EAB3EIh3EER3EMx3ECJ3EKp3EGZ3HOv3//gfzP4wI+wIf4CB/jIi7hE3yKz/A5vsCXuIwruIpruI4b+Apf4yZu4Tbu4C7u4Rt8i+/wvX///gP538cD/IAf8RCP8BhP8BTP8BN+xnO8wC/4Fb/hd7zEK/yBP/Eab/AX/sY/+Bdv8Q7vEYrw799/EP9IvCIjCqIiGqIjBmIiFmIjDuIiHuIjDAkQjggkRCIkRhIkRTIkRwqkRCqkRhqkRboI//79B/FPjwzIiEzIjCzIimzIjhzIiVzIjTzIi3zIjwIoiEIojCIoimIojhIoiVIojTIoi3L+/fsP5F8eFVARlVAZVVAV1VAdNVATtVAbdVAX9VAfDdAQjdAYTdAUzdAcLdASrdAabdAW7fz79x/Ivz06oCM6oTO6oCu6oTt6oCd6oTf6oC/6oT8GYCAGYTCGYCiGYThGYCRGYTTGYCzG+ffvP5D/eEzAREzCZEzBVEzDdMzATMzCbMzBXMzDfCzAQizCYizBUizDcqzASqzCaqzBWqzz799/IP/12ICN2ITN2IKt2Ibt2IGd2IXd2IO92If9OICDOITDOIKjOIbjOIGTOIXTOIOzOOffv/9A/v8BuvsEyw==
+   eJztwTEBAAAAwqD1T20ND6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAvgzqYAAB
   </data>
  </layer>
  <layer name="Constructions" width="250" height="60">
@@ -58,7 +58,7 @@
  </layer>
  <layer name="walls" width="250" height="60">
   <data encoding="base64" compression="zlib">
-   eJzt1cdtw0AQBVAW5Wy34VyHcx1Wch+SyOo8C89Cax50onR6D/jYMAPqNNquAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4JjOIxeRy8jZ6HwVuY7cRE4ip0fqAab1EHmMPEXuR+fnyG3k7gC1fXVgWu+Rj8hn5G10/oq8RF4PUNtXB6a1iCwjq8h8dP6JfEdmB6jtqwPT2kSG7m/WtrmW2VtH+tyX+zqT5W6Z66Lp6fNbq9yvM6vu/3/Iormb5brM+ib3wLTKjJd5HM93ndNtrkNzrrM5ZG/f7ea2vst99m6b3vo7bf8mM2v6gGnV+SrzN2TmeV/f3zKHfbd790v/tlmHpm/odu9znes675s812+Xnvq2L5o6MK1fgX6Eyw==
+   eJztwTEBAAAAwqD1T20ND6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAvgzqYAAB
   </data>
  </layer>
  <layer name="crusified" width="250" height="60">
@@ -76,29 +76,29 @@
    eJztwTEBAAAAwqD1T20ND6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAvgzqYAAB
   </data>
  </layer>
- <objectgroup name="objects" width="250" height="60">
-  <object x="59" y="222" width="8"/>
-  <object name="passage" x="0" y="197" width="5" height="128">
+ <objectgroup name="objects">
+  <object id="1" x="59" y="222" width="8"/>
+  <object id="2" name="passage" x="0" y="197" width="5" height="128">
    <properties>
     <property name="to_passage" value="a01_b1"/>
     <property name="to_scene" value="a0.tmx"/>
    </properties>
   </object>
-  <object name="player_start" x="337" y="410" width="12" height="25"/>
-  <object name="robot_soldier" x="964" y="411" width="12" height="25"/>
-  <object name="robot_soldier" x="450" y="406" width="12" height="25"/>
-  <object name="robot_soldier" x="560" y="173" width="12" height="25"/>
-  <object name="robot_soldier" x="559" y="245" width="12" height="25"/>
-  <object name="robot_soldier" x="887" y="212" width="12" height="25"/>
-  <object name="robot_soldier" x="708" y="408" width="12" height="25"/>
-  <object name="patrol_ufo" x="1007" y="42" width="12" height="25"/>
+  <object id="3" name="player_start" x="337" y="410" width="12" height="25"/>
+  <object id="4" name="robot_soldier" x="964" y="411" width="12" height="25"/>
+  <object id="5" name="robot_soldier" x="450" y="406" width="12" height="25"/>
+  <object id="6" name="robot_soldier" x="560" y="173" width="12" height="25"/>
+  <object id="7" name="robot_soldier" x="559" y="245" width="12" height="25"/>
+  <object id="8" name="robot_soldier" x="887" y="212" width="12" height="25"/>
+  <object id="9" name="robot_soldier" x="708" y="408" width="12" height="25"/>
+  <object id="10" name="patrol_ufo" x="1007" y="42" width="12" height="25"/>
  </objectgroup>
  <layer name="walls_thin" width="250" height="60">
   <data encoding="base64" compression="zlib">
    eJztwTEBAAAAwqD1T20ND6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAvgzqYAAB
   </data>
  </layer>
- <objectgroup name="dump" width="250" height="60"/>
+ <objectgroup name="dump"/>
  <layer name="construction2" width="250" height="60">
   <data encoding="base64" compression="zlib">
    eJztwTEBAAAAwqD1T20ND6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAvgzqYAAB

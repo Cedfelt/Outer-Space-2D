@@ -145,12 +145,12 @@ bool AdvancedGameobject::targetIsVisible(AdvancedGameobject *tar){
     float next_y;
     float amount_of_x = std::cos(ang);
     float amount_of_y = std::sin(ang);
-    /*for(int i=1;i<distance;i = i+map_data->getScale()*map_data->map->getTileSize().width){
+    for(int i=1;i<distance;i = i+map_data->getScale()*map_data->map->getTileSize().width){
         start_p.set(start_p.x+map_data->getScale()*map_data->map->getTileSize().width*amount_of_x, start_p.y+i*amount_of_y);
         if(map_data->isTiledBlocked((int)start_p.x, start_p.y+(1.5*map_data->getScale()*map_data->map->getTileSize().width))){
             return false;
         }
-    }*/
+    }
     return true;
     
 }
@@ -166,8 +166,6 @@ void AdvancedGameobject::setAnimation(std::string anim){
 AdvancedGameobject::~AdvancedGameobject(){
      cocos2d::log("Dealocate AdvGo\n");
     this->cleanup();
-    spriteFrameCache->removeUnusedSpriteFrames();
-    spriteFrameCache->destroyInstance();
 }
 
 

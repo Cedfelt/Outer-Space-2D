@@ -49,15 +49,28 @@ void SpaceGameLayer::super_init(const char*map_name) {
   this->addChild(level);
   level->setPosition(0, 0);
   // Special atribute layers
-  auto foreground = level->map->getLayer("foreground");
-  background = level->map->getLayer("background");
-  background2 = level->map->getLayer("background2");
-  background3 = level->map->getLayer("background3");
-  if (foreground != nullptr) {
-    level->getMap()->removeChild(foreground);
-    this->addChild(foreground, 10);
-    foreground->setScale(level->getScale());
+  
+  
+  string fgs = "foreground";
+  int fg_cnt = 1;
+  TMXLayer *fg = level->map->getLayer((fgs + std::to_string(fg_cnt)));
+  while (fg != NULL) {
+    this->addChild(fg, 10);
+    fg->setScale(level->getScale());
+    fg_cnt++;
+    fg = level->map->getLayer((fgs + std::to_string(fg_cnt)));
   }
+
+
+  string bgs = "background";
+  int bg_cnt = 1;
+  TMXLayer *bg = level->map->getLayer((bgs+std::to_string(bg_cnt)));
+  while (bg != NULL) {
+    background_layers.pushBack(bg);
+    bg = level->map->getLayer( (bgs+std::to_string(bg_cnt)));
+    bg_cnt++;
+  }
+  
 
   ////////////////////////////////////
   // OUTSIDE OF SCREEN RECTANGLE - GENERAL - This rect is used to determine which go's are on/off-screen
@@ -88,17 +101,17 @@ void SpaceGameLayer::super_init(const char*map_name) {
 
   ////////////////////////////////////
   // MUSIC SETUP - SPECIFIC
-  //auto mapGroup =level->getMap()->getProperties();
-  //string track_name = mapGroup["music_track"].asString();
+  auto mapGroup =level->getMap()->getProperties();
+  string track_name = mapGroup["music_track"].asString();
   auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
-  /*if(track_name=="silence"){
-      current_track = "silence";
+  if(track_name==""){
+      current_track = "";
       audio->stopBackgroundMusic();
   }
   else if(track_name!=current_track){
       current_track = track_name;
       audio->playBackgroundMusic(track_name.c_str(),true);
-  }*/
+  }
 
 }
 
@@ -138,10 +151,10 @@ void SpaceGameLayer::super_update(float delta) {
   checkExits();
   for (int i = 0;i < addToGameObjects.size();i++) {
     AdvancedGameobject *go = addToGameObjects.at(0);
-    /* go->setPosition(go->start_x,go->start_y);
+    go->setPosition(go->start_x,go->start_y);
      addChild(go);
      gameObjects.pushBack(go);
-     addToGameObjects.eraseObject(go);*/
+     addToGameObjects.eraseObject(go);
   }
   for (int i = 0;i < addToGameObjects.size();i++) {
     addToGameObjects.popBack();
@@ -150,20 +163,15 @@ void SpaceGameLayer::super_update(float delta) {
 }
 
 void SpaceGameLayer::update_layers() {
-  if (background != NULL)
-    //background->setPosition(0.9*level->map->convertToNodeSpace(Point(0,0.)));
-    int a = 1;
-  if (background2 != NULL)
-    //background2->setPosition(0.6*level->map->convertToNodeSpace(Point(0,0.)));
-    int a = 1;
-  if (background3 != NULL)
-    //background3->setPosition(0.8*level->map->convertToNodeSpace(Point(0,0.)));
-    int a = 1;
+  for (int i = 0; i < background_layers.size();i++) {
+    auto layer_grp = background_layers.at(i)->getProperties();
+    float bg_speed = layer_grp["BACKGROUND_SPEED"].asFloat(); 
+    background_layers.at(i)->setPosition(0.6*level->map->convertToNodeSpace(Point(0, 0.)));
+  }
 }
 
 bool SpaceGameLayer::goOnScreen(AdvancedGameobject *obj) {
-  //return screen.intersectsRect(obj->getShape());
-  return true;
+  return screen.intersectsRect(obj->getShape());
 }
 
 void SpaceGameLayer::updateOffScreenRect() {
@@ -370,7 +378,7 @@ void SpaceGameLayer::setViewPointCenter(cocos2d::Point position) {
 
 
 SpaceGameLayer::~SpaceGameLayer() {
-  /*this->cleanup();
+  this->cleanup();
   cocos2d::log("Dealocate SpaceGameLayer\n");
   //unscheduleAllSelectors();
   stopAllActions();
@@ -382,10 +390,10 @@ SpaceGameLayer::~SpaceGameLayer() {
   for(int i = 0;i<exits.size();i++){
       exits.at(i)->release();
   }
-  //hero->release();
-  //auto aud = CocosDenshion::SimpleAudioEngine::getInstance();
-  //aud->end();
-  //level->release();*/
+  hero->release();
+  /*auto aud = CocosDenshion::SimpleAudioEngine::getInstance();
+  aud->end();*/
+  level->release();
 
 }
 
