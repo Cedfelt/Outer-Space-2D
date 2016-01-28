@@ -9,7 +9,7 @@
 #pragma once
 #include <stdio.h>
 #include "cocos2d.h"
-#include "EnemyGameobject.h"
+#include "outer_space_frame_work/gameobjects/EnemyGameobject.h"
 
 class Robot_Soldier : public EnemyGameObject{
 public:

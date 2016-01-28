@@ -10,8 +10,8 @@
 #define Physic_h
 
 #include <stdio.h>
-#include "Advanced_Gameobject.h"
-#include "Hero.h"
+#include "outer_space_frame_work/gameobjects/Advanced_Gameobject.h"
+#include "outer_space_frame_work/gameobjects/Hero.h"
 #include "Level.h"
 
 USING_NS_CC;

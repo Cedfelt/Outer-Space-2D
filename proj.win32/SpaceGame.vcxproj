@@ -151,34 +151,33 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     </PreLinkEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\Classes\Advanced_Gameobject.cpp" />
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
-    <ClCompile Include="..\Classes\EnemyGameObject.cpp" />
+    <ClCompile Include="..\Classes\go\Robot_Soldier.cpp" />
     <ClCompile Include="..\Classes\HelloWorldScene.cpp" />
-    <ClCompile Include="..\Classes\Hero.cpp" />
-    <ClCompile Include="..\Classes\Level.cpp" />
-    <ClCompile Include="..\Classes\Pasage.cpp" />
-    <ClCompile Include="..\Classes\Physic.cpp" />
-    <ClCompile Include="..\Classes\Projectile.cpp" />
-    <ClCompile Include="..\Classes\Robot_Soldier.cpp" />
-    <ClCompile Include="..\Classes\SpaceGameLayer.cpp" />
-    <ClCompile Include="..\Classes\Space_Level.cpp" />
+    <ClCompile Include="..\Classes\outer_space_frame_work\gameobjects\Advanced_Gameobject.cpp" />
+    <ClCompile Include="..\Classes\outer_space_frame_work\gameobjects\EnemyGameObject.cpp" />
+    <ClCompile Include="..\Classes\outer_space_frame_work\gameobjects\Hero.cpp" />
+    <ClCompile Include="..\Classes\outer_space_frame_work\gameobjects\Pasage.cpp" />
+    <ClCompile Include="..\Classes\outer_space_frame_work\gameobjects\Projectile.cpp" />
+    <ClCompile Include="..\Classes\outer_space_frame_work\logic_and_structure\Level.cpp" />
+    <ClCompile Include="..\Classes\outer_space_frame_work\logic_and_structure\Physic.cpp" />
+    <ClCompile Include="..\Classes\outer_space_frame_work\SpaceGameLayer.cpp" />
+    <ClCompile Include="..\Classes\outer_space_frame_work\Space_Level.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\Classes\Advanced_Gameobject.h" />
     <ClInclude Include="..\Classes\AppDelegate.h" />
-    <ClInclude Include="..\Classes\EnemyGameObject.h" />
-    <ClInclude Include="..\Classes\globals.h" />
+    <ClInclude Include="..\Classes\go\Robot_Soldier.h" />
     <ClInclude Include="..\Classes\HelloWorldScene.h" />
-    <ClInclude Include="..\Classes\Hero.h" />
-    <ClInclude Include="..\Classes\Level.h" />
-    <ClInclude Include="..\Classes\Passage.h" />
-    <ClInclude Include="..\Classes\Physic.h" />
-    <ClInclude Include="..\Classes\Projectile.h" />
-    <ClInclude Include="..\Classes\Robot_Soldier.h" />
-    <ClInclude Include="..\Classes\SpaceGameLayer.h" />
-    <ClInclude Include="..\Classes\Space_Level.h" />
+    <ClInclude Include="..\Classes\outer_space_frame_work\gameobjects\Advanced_Gameobject.h" />
+    <ClInclude Include="..\Classes\outer_space_frame_work\gameobjects\EnemyGameObject.h" />
+    <ClInclude Include="..\Classes\outer_space_frame_work\gameobjects\Hero.h" />
+    <ClInclude Include="..\Classes\outer_space_frame_work\gameobjects\Passage.h" />
+    <ClInclude Include="..\Classes\outer_space_frame_work\gameobjects\Projectile.h" />
+    <ClInclude Include="..\Classes\outer_space_frame_work\logic_and_structure\Level.h" />
+    <ClInclude Include="..\Classes\outer_space_frame_work\logic_and_structure\Physic.h" />
+    <ClInclude Include="..\Classes\outer_space_frame_work\SpaceGameLayer.h" />
+    <ClInclude Include="..\Classes\outer_space_frame_work\Space_Level.h" />
     <ClInclude Include="main.h" />
   </ItemGroup>
   <ItemGroup>

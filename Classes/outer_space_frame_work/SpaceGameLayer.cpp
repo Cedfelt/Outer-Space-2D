@@ -9,21 +9,21 @@
 
 using namespace std;
 #include "SpaceGameLayer.h"
-#include "Physic.h"
+#include "outer_space_frame_work/logic_and_structure/Physic.h"
 //#include  "globals.h"
 //#include "text_box.h"
 //#include "SpacePig.h"
 //#include "Damage_Zone.h"
 //#include "brain_sucker.h"
 #include "SimpleAudioEngine.h"
-#include "Passage.h"
+#include "outer_space_frame_work/gameobjects/passage.h"
 //#include "Zombie.h"
 //#include "Flying_Blocker.h"
 //#include "Spitting_Projectiles.h"
 #include "Space_Level.h"
 //#include "DeathRain.h"
 //#include "MovingPlattform.h"
-#include "Robot_Soldier.h"
+#include "go/Robot_Soldier.h"
 //#include "Patrol_Ufo.h"
 int counter;
 SpaceGameLayer::SpaceGameLayer() {

@@ -7,9 +7,9 @@
 //
 #pragma once
 
-#include "Advanced_Gameobject.h"
-#include "Hero.h"
-#include "Level.h"
+#include "outer_space_frame_work/gameobjects/Advanced_Gameobject.h"
+#include "outer_space_frame_work/gameobjects/Hero.h"
+#include "outer_space_frame_work/logic_and_structure/Level.h"
 
 
 using namespace std;

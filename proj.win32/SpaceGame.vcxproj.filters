@@ -10,20 +10,17 @@
     <Filter Include="src">
       <UniqueIdentifier>{bb6c862e-70e9-49d9-81b7-3829a6f50471}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Levels">
-      <UniqueIdentifier>{de735ae7-4e5d-484e-ba37-92fc0b6be56f}</UniqueIdentifier>
+    <Filter Include="src\outer_space_frame_work">
+      <UniqueIdentifier>{6a8a2199-3395-4566-b7ad-07f7646fdc48}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\GameObjects">
-      <UniqueIdentifier>{bc71a823-6259-49f4-9ac2-2acc874c3a60}</UniqueIdentifier>
+    <Filter Include="src\outer_space_frame_work\gameobjects">
+      <UniqueIdentifier>{ee8ed511-077d-4bfd-8995-6865dc14d8d7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\GameObjects\Enemies">
-      <UniqueIdentifier>{68668e9e-3b5d-4093-95de-23108949f171}</UniqueIdentifier>
+    <Filter Include="src\outer_space_frame_work\logic_and_structure">
+      <UniqueIdentifier>{1adc3e44-9192-4c02-93f5-b20b3adf62c0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Logic">
-      <UniqueIdentifier>{77a50ed0-f798-4903-b446-5752b6a31f68}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\GameObjects\Friendly">
-      <UniqueIdentifier>{41a28314-78ee-424e-8f80-788152436a2e}</UniqueIdentifier>
+    <Filter Include="src\go">
+      <UniqueIdentifier>{9095069e-6885-48f0-aa81-63fec9cbb87f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -36,35 +33,35 @@
     <ClCompile Include="..\Classes\HelloWorldScene.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Space_Level.cpp">
-      <Filter>src\Levels</Filter>
+    <ClCompile Include="..\Classes\go\Robot_Soldier.cpp">
+      <Filter>src\go</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\SpaceGameLayer.cpp">
-      <Filter>src\Levels</Filter>
+    <ClCompile Include="..\Classes\outer_space_frame_work\gameobjects\Advanced_Gameobject.cpp">
+      <Filter>src\outer_space_frame_work\gameobjects</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Advanced_Gameobject.cpp">
-      <Filter>src\GameObjects</Filter>
+    <ClCompile Include="..\Classes\outer_space_frame_work\gameobjects\EnemyGameObject.cpp">
+      <Filter>src\outer_space_frame_work\gameobjects</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Level.cpp">
-      <Filter>src\Levels</Filter>
+    <ClCompile Include="..\Classes\outer_space_frame_work\gameobjects\Pasage.cpp">
+      <Filter>src\outer_space_frame_work\gameobjects</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Hero.cpp">
-      <Filter>src\GameObjects\Friendly</Filter>
+    <ClCompile Include="..\Classes\outer_space_frame_work\logic_and_structure\Level.cpp">
+      <Filter>src\outer_space_frame_work\logic_and_structure</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Physic.cpp">
-      <Filter>src\Logic</Filter>
+    <ClCompile Include="..\Classes\outer_space_frame_work\logic_and_structure\Physic.cpp">
+      <Filter>src\outer_space_frame_work\logic_and_structure</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Pasage.cpp">
-      <Filter>src\GameObjects\Friendly</Filter>
+    <ClCompile Include="..\Classes\outer_space_frame_work\Space_Level.cpp">
+      <Filter>src\outer_space_frame_work</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\EnemyGameObject.cpp">
-      <Filter>src\GameObjects\Enemies</Filter>
+    <ClCompile Include="..\Classes\outer_space_frame_work\SpaceGameLayer.cpp">
+      <Filter>src\outer_space_frame_work</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Robot_Soldier.cpp">
-      <Filter>src\GameObjects\Enemies</Filter>
+    <ClCompile Include="..\Classes\outer_space_frame_work\gameobjects\Projectile.cpp">
+      <Filter>src\outer_space_frame_work\gameobjects</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Projectile.cpp">
-      <Filter>src\GameObjects\Enemies</Filter>
+    <ClCompile Include="..\Classes\outer_space_frame_work\gameobjects\Hero.cpp">
+      <Filter>src\outer_space_frame_work\gameobjects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -77,38 +74,35 @@
     <ClInclude Include="..\Classes\HelloWorldScene.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Space_Level.h">
-      <Filter>src\Levels</Filter>
+    <ClInclude Include="..\Classes\go\Robot_Soldier.h">
+      <Filter>src\go</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\SpaceGameLayer.h">
-      <Filter>src\Levels</Filter>
+    <ClInclude Include="..\Classes\outer_space_frame_work\gameobjects\Advanced_Gameobject.h">
+      <Filter>src\outer_space_frame_work\gameobjects</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Advanced_Gameobject.h">
-      <Filter>src\GameObjects</Filter>
+    <ClInclude Include="..\Classes\outer_space_frame_work\gameobjects\EnemyGameObject.h">
+      <Filter>src\outer_space_frame_work\gameobjects</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Level.h">
-      <Filter>src\Levels</Filter>
+    <ClInclude Include="..\Classes\outer_space_frame_work\gameobjects\Passage.h">
+      <Filter>src\outer_space_frame_work\gameobjects</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\globals.h">
-      <Filter>src\Logic</Filter>
+    <ClInclude Include="..\Classes\outer_space_frame_work\logic_and_structure\Level.h">
+      <Filter>src\outer_space_frame_work\logic_and_structure</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Hero.h">
-      <Filter>src\GameObjects\Friendly</Filter>
+    <ClInclude Include="..\Classes\outer_space_frame_work\logic_and_structure\Physic.h">
+      <Filter>src\outer_space_frame_work\logic_and_structure</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Physic.h">
-      <Filter>src\Logic</Filter>
+    <ClInclude Include="..\Classes\outer_space_frame_work\Space_Level.h">
+      <Filter>src\outer_space_frame_work</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Passage.h">
-      <Filter>src\GameObjects\Friendly</Filter>
+    <ClInclude Include="..\Classes\outer_space_frame_work\SpaceGameLayer.h">
+      <Filter>src\outer_space_frame_work</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\EnemyGameObject.h">
-      <Filter>src\GameObjects\Enemies</Filter>
+    <ClInclude Include="..\Classes\outer_space_frame_work\gameobjects\Projectile.h">
+      <Filter>src\outer_space_frame_work\gameobjects</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Robot_Soldier.h">
-      <Filter>src\GameObjects\Enemies</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Projectile.h">
-      <Filter>src\GameObjects\Enemies</Filter>
+    <ClInclude Include="..\Classes\outer_space_frame_work\gameobjects\Hero.h">
+      <Filter>src\outer_space_frame_work\gameobjects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
