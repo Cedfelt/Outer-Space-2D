@@ -44,7 +44,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
     // create a scene. it's an autorelease object
     // create a scene. it's an autorelease object
-    UserDefault::getInstance()->setStringForKey("current_level", "b.tmx");
+    UserDefault::getInstance()->setStringForKey("current_level", "level4.tmx");
     UserDefault::getInstance()->flush();
     auto scene = Space_Level::createScene("small_scale_test.tmx");
 

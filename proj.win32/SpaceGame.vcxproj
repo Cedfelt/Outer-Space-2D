@@ -159,6 +159,7 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <ClCompile Include="..\Classes\outer_space_frame_work\gameobjects\Hero.cpp" />
     <ClCompile Include="..\Classes\outer_space_frame_work\gameobjects\Pasage.cpp" />
     <ClCompile Include="..\Classes\outer_space_frame_work\gameobjects\Projectile.cpp" />
+    <ClCompile Include="..\Classes\outer_space_frame_work\gameobjects\SoundFx.cpp" />
     <ClCompile Include="..\Classes\outer_space_frame_work\logic_and_structure\Level.cpp" />
     <ClCompile Include="..\Classes\outer_space_frame_work\logic_and_structure\Physic.cpp" />
     <ClCompile Include="..\Classes\outer_space_frame_work\SpaceGameLayer.cpp" />
@@ -174,6 +175,7 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <ClInclude Include="..\Classes\outer_space_frame_work\gameobjects\Hero.h" />
     <ClInclude Include="..\Classes\outer_space_frame_work\gameobjects\Passage.h" />
     <ClInclude Include="..\Classes\outer_space_frame_work\gameobjects\Projectile.h" />
+    <ClInclude Include="..\Classes\outer_space_frame_work\gameobjects\SoundFx.h" />
     <ClInclude Include="..\Classes\outer_space_frame_work\logic_and_structure\Level.h" />
     <ClInclude Include="..\Classes\outer_space_frame_work\logic_and_structure\Physic.h" />
     <ClInclude Include="..\Classes\outer_space_frame_work\SpaceGameLayer.h" />

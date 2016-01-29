@@ -63,6 +63,9 @@
     <ClCompile Include="..\Classes\outer_space_frame_work\gameobjects\Hero.cpp">
       <Filter>src\outer_space_frame_work\gameobjects</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\outer_space_frame_work\gameobjects\SoundFx.cpp">
+      <Filter>src\outer_space_frame_work\gameobjects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -102,6 +105,9 @@
       <Filter>src\outer_space_frame_work\gameobjects</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\outer_space_frame_work\gameobjects\Hero.h">
+      <Filter>src\outer_space_frame_work\gameobjects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\outer_space_frame_work\gameobjects\SoundFx.h">
       <Filter>src\outer_space_frame_work\gameobjects</Filter>
     </ClInclude>
   </ItemGroup>

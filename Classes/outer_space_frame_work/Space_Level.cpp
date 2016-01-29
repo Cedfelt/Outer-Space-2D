@@ -20,7 +20,7 @@ cocos2d::Scene* Space_Level ::createScene(string m_n)
     auto layer = Space_Level::create();
     scene->setAnchorPoint(cocos2d::Point(0.0,0.0));
     scene->addChild(layer);
-    scene->setScale(0.5);// Adjust depending on screen-size
+    scene->setScale(1);// Adjust depending on screen-size
     return scene;
     
 }

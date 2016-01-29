@@ -165,8 +165,11 @@ void SpaceGameLayer::super_update(float delta) {
 void SpaceGameLayer::update_layers() {
   for (int i = 0; i < background_layers.size();i++) {
     auto layer_grp = background_layers.at(i)->getProperties();
-    float bg_speed = layer_grp["BACKGROUND_SPEED"].asFloat(); 
-    background_layers.at(i)->setPosition(0.6*level->map->convertToNodeSpace(Point(0, 0.)));
+    float bg_speed = layer_grp["BACKGROUND_SPEED"].asFloat();
+    if(bg_speed == 0) {
+      bg_speed = 0.8;
+    }
+    background_layers.at(i)->setPosition(bg_speed*level->map->convertToNodeSpace(Point(0, 0.)));
   }
 }
 
