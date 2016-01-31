@@ -1,4 +1,5 @@
 *.obj
+proj.win32/Debug.win32/
 proj.win32/SpaceGame.opensdf
 proj.win32/SpaceGame.sdf
 proj.win32/SpaceGame.sdf
