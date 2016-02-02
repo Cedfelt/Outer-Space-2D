@@ -1,7 +1,7 @@
 #include "Hero.h"
 #include "globals.h"
 
-
+//#define GUI
 
 Hero::Hero(float sf)
 {
@@ -18,7 +18,6 @@ Hero::Hero(float sf)
 //player_sprite = cocos2d::Sprite::create("pink_sqr.png");
   player_sprite->setPositionX(256);
   player_sprite->setPositionY(256);
-  player_sprite->setScale(sf);
   player_sprite->setAnchorPoint(Point(0.5f, 0));
 
   // INIT POS
@@ -44,7 +43,9 @@ Hero::Hero(float sf)
   hp_label = Label::createWithTTF("FUEL: 100 %", "fonts/Marker Felt.ttf", 24);
   hp_label->setTextColor(colors[int((0))]);
   // position the label on the center of the screen
+#ifdef GUI
   this->addChild(hp_label, 6);
+#endif
 
   ////////////////////////////
   // ADD UPDATE
@@ -54,7 +55,7 @@ Hero::Hero(float sf)
   // OBJECT SETTINGS
   maxWalkSpeed = 220;
   maxFlySpeed = 270;
-  groundAcceleration = 3;
+  groundAcceleration = 8;
   groundDeaccleration = 0.65;
   airAcceleration = 1.4;
   airDeacceleration = 0.998;
@@ -104,7 +105,9 @@ Hero::Hero(float sf)
       break;
     }
   });
+#ifdef GUI
   this->addChild(button_left, 6);
+#endif
 
   button_right = cocos2d::ui::Button::create("jetpack_logo0.png", "pink_sqr.png", "jetpack_logo1.png");
   button_right->addTouchEventListener([&](Ref* sender, cocos2d::ui::Widget::TouchEventType type) {
@@ -129,9 +132,11 @@ Hero::Hero(float sf)
   });
 
   imune = false;
+#ifdef GUI
   this->addChild(button_right, 6);
+#endif
   player_sprite->setPosition(0.5f, 0);
-  player_sprite->setScale(3);
+  setScale(3);
   player_sprite->getTexture()->setAliasTexParameters();
 
   //setAnchorPoint(Point(0.5f,0));
@@ -150,7 +155,6 @@ void Hero::updateGameObject(float delta) {
     grounded = true;
   }
   if (HP >= 0 && !guided_misile) {
-    updateTimers(delta);
     if (left_dash <= 0 && right_dash <= 0) {
       check_for_gravity = true;
       addStdMovement(delta);
@@ -167,8 +171,10 @@ void Hero::updateGameObject(float delta) {
   }
   // GUI
   CCSize winSize = CCDirector::sharedDirector()->getWinSize();
+#ifdef GUI
   button_left->setPosition(this->convertToNodeSpace(Point(0.05*winSize.width, 0.8*winSize.height)));
   button_right->setPosition(this->convertToNodeSpace(Point(0.95*winSize.width, 0.8*winSize.height)));
+#endif
   // Uppdate ViewPoint
   if (vsp<-maxFlySpeed&&cameraOffset>-55) {
     cameraOffset -= (0.8);
@@ -230,7 +236,7 @@ void Hero::setupAnimation() {
   player_sprite->runAction(RepeatForever::create(Animate::create(animationCache->getAnimation("WalkR"))));
   direction = RIGHT;
 
-  //this->addChild(player_sprite,5);
+  this->addChild(player_sprite, 6);
 }
 
 
@@ -241,133 +247,133 @@ void Hero::updateAnimation(int lastAnimation, int newAnimation) {
 }
 
 void Hero::updateAnimationInterrupt(float delta) {
-  player_sprite->cocos2d::Node::setPosition((int)getPositionX(), (int)getPositionY());
-  bool forever = true;
-  // LEFT
-  if (HP >= 0) {
-    if (left) {
-      if (!right)
-        direction = Hero::LEFT;
-    }
-    // RIGHT
-    if (right) {
-      if (!left)
-        direction = Hero::RIGHT;
-    }
-    if (direction == LEFT) {
-      lastDir = LEFT;
+  //player_sprite->cocos2d::Node::setPosition((int)getPositionX(), (int)getPositionY());
+  //bool forever = true;
+  //// LEFT
+  //if (HP >= 0) {
+  //  if (left) {
+  //    if (!right)
+  //      direction = Hero::LEFT;
+  //  }
+  //  // RIGHT
+  //  if (right) {
+  //    if (!left)
+  //      direction = Hero::RIGHT;
+  //  }
+  //  if (direction == LEFT) {
+  //    lastDir = LEFT;
 
-      if (!jump) {
-        if (!left || (right&&left)) {
-          // IDLE L
-          E_NextAnimation = IDLE_LEFT;
-        }
-        else {
-          //WALK L
-          E_NextAnimation = LEFT;
+  //    if (!jump) {
+  //      if (!left || (right&&left)) {
+  //        // IDLE L
+  //        E_NextAnimation = IDLE_LEFT;
+  //      }
+  //      else {
+  //        //WALK L
+  //        E_NextAnimation = LEFT;
 
-        }
-      }
-      else {
-        if (dash_timer > 0 && fule > 0) {
-          E_NextAnimation = BOOST_LEFT;
-        }
-        else if (fule > 0 && jetPack && (jump && (left || right))) {
-          //FLY L
-          //if(!(left&&right)){
-          E_NextAnimation = JUMP_LEFT;
-          //}
-        }
-        else {
-          // FALL L
-          E_NextAnimation = FALL_LEFT;
-        }
-        // BOOST L
-        if (left_dash > 0) {
-          E_NextAnimation = BOOST_LEFT;
-          if (right_dash < 0.5*dash_max) {
-            E_NextAnimation = dieL;
-          }
-        }
-
-
-      }
-    }
-    else if (direction == RIGHT) {
-      if (!jump) {
-        if (!right || (right&&left)) {
-          // IDLE R
-          E_NextAnimation = IDLE_RIGHT;
-        }
-        else {
-          //WALK R
-          E_NextAnimation = RIGHT;
-
-        }
-      }
-      else {
-
-        if (dash_timer > 0 && fule > 0) {
-          E_NextAnimation = BOOST_RIGHT;
-        }
-        else if (fule > 0 && jetPack && (jump && (left || right))) {
-          //FLY R
-          //if(!(left&&right)){
-          E_NextAnimation = JUMP_RIGHT;
-          //}
-        }
-        else {
-          // FALL R
-          E_NextAnimation = FALL_RIGHT;
-        }
-      }
-      // BOOST R
-      if (right_dash > 0) {
-        E_NextAnimation = BOOST_RIGHT;
-        if (right_dash < 0.5*dash_max) {
-          E_NextAnimation = dieR;
-        }
-      }
-
-    }
-    if (HP == 0) {
-      HP = -1;
-      forever = false;
-      if (left) {
-        E_NextAnimation = dieL;
-      }
-      else {
-        E_NextAnimation = dieR;
-      }
-    }
-    if (E_LastAnimation != E_NextAnimation) {
-      E_LastAnimation = E_NextAnimation;
-      player_sprite->stopAllActions();
-      if (direction == LEFT) {
-        player_sprite->setFlippedX(true);
-      }
-      else {
-        player_sprite->setFlippedX(false);
-      }
-      if (forever) {
-        player_sprite->runAction(RepeatForever::create(Animate::create(animationCache->getAnimation(animatioNames[E_NextAnimation]))));
-
-      }
-      else {
-        player_sprite->runAction((Animate::create(animationCache->getAnimation(animatioNames[E_NextAnimation]))));
-      }
-    }
-  }
+  //      }
+  //    }
+  //    else {
+  //      if (dash_timer > 0 && fule > 0) {
+  //        E_NextAnimation = BOOST_LEFT;
+  //      }
+  //      else if (fule > 0 && jetPack && (jump && (left || right))) {
+  //        //FLY L
+  //        //if(!(left&&right)){
+  //        E_NextAnimation = JUMP_LEFT;
+  //        //}
+  //      }
+  //      else {
+  //        // FALL L
+  //        E_NextAnimation = FALL_LEFT;
+  //      }
+  //      // BOOST L
+  //      if (left_dash > 0) {
+  //        E_NextAnimation = BOOST_LEFT;
+  //        if (right_dash < 0.5*dash_max) {
+  //          E_NextAnimation = dieL;
+  //        }
+  //      }
 
 
+  //    }
+  //  }
+  //  else if (direction == RIGHT) {
+  //    if (!jump) {
+  //      if (!right || (right&&left)) {
+  //        // IDLE R
+  //        E_NextAnimation = IDLE_RIGHT;
+  //      }
+  //      else {
+  //        //WALK R
+  //        E_NextAnimation = RIGHT;
 
-  CCSize winSize = CCDirector::sharedDirector()->getWinSize();
-  // LABEL
-  string fule_string = std::to_string(int(fule));
-  fule_string = "FULE: " + fule_string + " %";
-  hp_label->setTextColor(colors[int((fule / 33.3))]);
-  hp_label->setString(fule_string);
-  hp_label->setPosition(this->convertToNodeSpace(Point(0.05*winSize.width, 0.7*winSize.height)));
+  //      }
+  //    }
+  //    else {
+
+  //      if (dash_timer > 0 && fule > 0) {
+  //        E_NextAnimation = BOOST_RIGHT;
+  //      }
+  //      else if (fule > 0 && jetPack && (jump && (left || right))) {
+  //        //FLY R
+  //        //if(!(left&&right)){
+  //        E_NextAnimation = JUMP_RIGHT;
+  //        //}
+  //      }
+  //      else {
+  //        // FALL R
+  //        E_NextAnimation = FALL_RIGHT;
+  //      }
+  //    }
+  //    // BOOST R
+  //    if (right_dash > 0) {
+  //      E_NextAnimation = BOOST_RIGHT;
+  //      if (right_dash < 0.5*dash_max) {
+  //        E_NextAnimation = dieR;
+  //      }
+  //    }
+
+  //  }
+  //  if (HP == 0) {
+  //    HP = -1;
+  //    forever = false;
+  //    if (left) {
+  //      E_NextAnimation = dieL;
+  //    }
+  //    else {
+  //      E_NextAnimation = dieR;
+  //    }
+  //  }
+  //  if (E_LastAnimation != E_NextAnimation) {
+  //    E_LastAnimation = E_NextAnimation;
+  //    player_sprite->stopAllActions();
+  //    if (direction == LEFT) {
+  //      player_sprite->setFlippedX(true);
+  //    }
+  //    else {
+  //      player_sprite->setFlippedX(false);
+  //    }
+  //    if (forever) {
+  //      player_sprite->runAction(RepeatForever::create(Animate::create(animationCache->getAnimation(animatioNames[E_NextAnimation]))));
+
+  //    }
+  //    else {
+  //      player_sprite->runAction((Animate::create(animationCache->getAnimation(animatioNames[E_NextAnimation]))));
+  //    }
+  //  }
+  //}
+
+
+
+  //CCSize winSize = CCDirector::sharedDirector()->getWinSize();
+  //// LABEL
+  //string fule_string = std::to_string(int(fule));
+  //fule_string = "FULE: " + fule_string + " %";
+  //hp_label->setTextColor(colors[int((fule / 33.3))]);
+  //hp_label->setString(fule_string);
+  //hp_label->setPosition(this->convertToNodeSpace(Point(0.05*winSize.width, 0.7*winSize.height)));
 
 
 }
@@ -455,13 +461,17 @@ void Hero::onTouchEnded(const std::vector<Touch*>& touches, Event*)
     if ((touches.at(i)->getStartLocation().x) < winSize.width / 2) {
       // LEFT
       left = false;
+#ifdef GUI
       button_left->setBright(true);
+#endif
       first_boost = true;
     }
     else {
       // RIGHT
       right = false;
+#ifdef GUI
       button_right->setBright(true);
+#endif
       first_boost = true;
     }
   }
@@ -480,6 +490,7 @@ void Hero::onTouchMoved(const std::vector<Touch*>& touch, Event* event)
       float swipe_distance = current_touch - touch.at(0)->getStartLocation().y;
       if (swipe_distance > jetpack_swipe) {
         throtle_amount = swipe_distance / jetpack_swipe;
+        throtle_amount *= throtle_amount;// adding a different throtle function x2
         if ((touch.at(i)->getStartLocation().x) < winSize.width / 2) {
           // LEFT
           if (fule > 0 && first_boost) {
@@ -489,7 +500,9 @@ void Hero::onTouchMoved(const std::vector<Touch*>& touch, Event* event)
             first_boost = false;
           }
           jetPack = true;
+#ifdef GUI
           button_left->setBright(false);
+#endif
           jump = true;
         }
         else {
@@ -503,7 +516,9 @@ void Hero::onTouchMoved(const std::vector<Touch*>& touch, Event* event)
           }
           jump = true;
           jetPack = true;
+#ifdef GUI
           button_right->setBright(false);
+#endif
         }
 
       }
@@ -523,23 +538,7 @@ Hero::~Hero()
 }
 
 
-void Hero::updateTimers(float delta) {
-  ///////////////
-  // TIMERS
-  //////////////
-  if (touch_timer >= 0) {
-    touch_timer += delta;
-  }
-  if (touch_timer > double_touch) {
-    touch_timer = -1;
-  }
-  if (dash_timer > 0) {
-    dash_timer -= delta;
-  }
-  if (cool_down_timer > 0) {
-    cool_down_timer -= delta;
-  }
-}
+
 
 // ADD MOVEMENT
 void Hero::addStdMovement(float delta) {
@@ -550,21 +549,31 @@ void Hero::addStdMovement(float delta) {
     if (right&&!left) {
       if (hsp < maxWalkSpeed) {
         hsp += groundAcceleration;
+        setAnimation("WalkR");
+        player_sprite->setScaleX(1);
+        direction = RIGHT;
       }
 
     }
     else if (left&&!right) {
       if (hsp > -maxWalkSpeed) {
         hsp -= groundAcceleration;
+        setAnimation("WalkL");
+        player_sprite->setScaleX(-1);
+        direction = LEFT;
       }
     }
     else {
+      if (direction == RIGHT) {
+        setAnimation("IdleR");
+        player_sprite->setScaleX(1);
+      }
+      else {
+        setAnimation("IdleL");
+        player_sprite->setScaleX(-1);
+      }
       hsp *= groundDeaccleration;
     }
-  }
-
-  if (std::abs(hsp) > 1.2*maxFlySpeed) {
-    hsp *= airDeacceleration*0.7;//BOOST DEACELERATION
   }
 
 }
@@ -576,36 +585,33 @@ void Hero::addJetPackMovement(float delta) {
   }
 
 
+
   if (grounded&&!landed) {
     landed = true;
     jetPack = false;
+#ifdef GUI
     button_left->setBright(true);
+#endif
 
   }
-  /*// LEFT
-   if(!right){
-   throtle = -1;
-   direction = Hero::LEFT;
-   }
-   // RIGHT
-   if(!left){
-   throtle =1;
-   direction = Hero::RIGHT;
-   }*/
 
-  if (!grounded)
+
+  // Air control without jetpack
+  if (!grounded&&!jetPack)
     if (right&&!left) {
       if (hsp < maxFlySpeed) {
-        hsp += 1 * airAcceleration;
+        hsp += 1 * airAcceleration / 0.5f;
+        direction = RIGHT;
       }
     }
     else if (left&&!right) {
       if (hsp > -maxFlySpeed) {
-        hsp -= 1 * airAcceleration;
+        hsp -= 1 * airAcceleration / 0.5f;
+        direction = LEFT;
       }
     }
     else {
-      hsp *= (airDeacceleration - (left&right)*0.0005);
+      hsp *= (airDeacceleration);
     }
 
 
@@ -618,9 +624,22 @@ void Hero::addJetPackMovement(float delta) {
         if (vsp == 0) {
           vsp = 90;
         }
-        vsp += ((boostPower*jetPack))*0.5*throtle_amount;
+        vsp += ((boostPower*jetPack))*0.25*throtle_amount;
       }
 
+      // Add Setering when in mid-air
+      if (right&&!left) {
+        if (hsp < maxFlySpeed) {
+          hsp += 1 * airAcceleration;// NOT THIS
+          direction = RIGHT;
+        }
+      }
+      else if (left&&!right) {
+        if (hsp > -maxFlySpeed) {
+          hsp -= 1 * airAcceleration;// NOT THIS
+          direction = LEFT;
+        }
+      }
     }
     if (grounded&&fule < fule_max) {
       fule += delta*fule_consume_rate * 2;
@@ -632,26 +651,66 @@ void Hero::addJetPackMovement(float delta) {
       jetPack = false;
     }
 
+    if (std::abs(hsp) > 1.2*maxFlySpeed) {
+      hsp *= airDeacceleration*0.7;//BOOST DEACELERATION
+    }
+
+    // Animation setup
+    if (vsp > 0 || jetPack) {
+      if (direction == RIGHT) {
+        setAnimation("flyR");
+        player_sprite->setScaleX(1);
+      }
+      else {
+        setAnimation("flyL");
+        player_sprite->setScaleX(-1);
+      }
+    }
+    else if (vsp < 0) {
+      if (direction == RIGHT) {
+        setAnimation("fallR");
+        player_sprite->setScaleX(1);
+      }
+      else {
+        setAnimation("fallL");
+        player_sprite->setScaleX(-1);
+      }
+    }
+
 }
 void Hero::addDashMovement(float delta) {
   vsp = 0;
   attacking = true;
   if (left_dash > 0) {
+    direction = LEFT;
     left_dash -= delta;
-    hsp = -dash_accelaration;
     if (left_dash > 0.5*dash_max) {
-      // Building upp
       hsp = 0;
       vsp = 0;
       attacking = false;
+      setAnimation("dashL");
+      player_sprite->setScaleX(-1);
+    }
+    else {
+      setAnimation("dieL");
+      player_sprite->setScaleX(-1);
+      hsp = -dash_accelaration;
     }
   }
   else if (right_dash > 0) {
+    direction = RIGHT;
     right_dash -= delta;
-    hsp = dash_accelaration;
     if (right_dash > 0.5*dash_max) {
       hsp = 0;
       vsp = 0;
+      attacking = false;
+      setAnimation("dashR");
+      player_sprite->setScaleX(1);
+    }
+    else {
+      setAnimation("dieR");
+      player_sprite->setScaleX(1);
+      hsp = dash_accelaration;
     }
   }
   // Stop sound when dashings over

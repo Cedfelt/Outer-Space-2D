@@ -36,12 +36,7 @@
  <tileset firstgid="7221" name="SpaceBGC_recolor2" tilewidth="8" tileheight="8" tilecount="400" columns="20">
   <image source="SpaceBGC_recolor2.png" width="160" height="160"/>
  </tileset>
- <layer name="background3" width="250" height="60" opacity="0.96">
-  <data encoding="base64" compression="zlib">
-   eJztwTEBAAAAwqD1T20ND6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAvgzqYAAB
-  </data>
- </layer>
- <layer name="background1" width="250" height="60">
+ <layer name="background3" width="250" height="60">
   <data encoding="base64" compression="zlib">
    eJztw0ENAAAMA6EKOf86Z2MPSKgtVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV1UcPqRvR9Q==
   </data>
@@ -49,6 +44,11 @@
  <layer name="background2" width="250" height="60">
   <data encoding="base64" compression="zlib">
    eJzt3NO2JUYAANETO5lYc4OJzTu2bdu2bdu2bVuxbds26zN6ddfDfq1PqOycmUxu5EFe5EN+FEBBFEJhFEFRFENxlEBJlEJplEFZZNuzZy+4XjmURwVURCVURhVURTVURw3URC3URh3URT3URwM0tGfPXpC9RmiMJmiKZmiOFmiJVmiNNmiLdmiPDuiITuiMLuhqz569IHvd0B090BO90Bt90Bf90B8DMBCDMBhDMBTDMBwjMNKePXtB9kZhNMZgLMZhPCZgIiZhMqZgKqZhOmZgJmZhNuZgrj179oLszcN8LMBCLMJiLMFSLMNyrMBKrMJqrMFarMN6bMBGe/bsBdnbhM3Ygq3Yhu3YgZ3Yhd3Yg73Yh/04gIM4hMM4gqP27NkLsncMx3ECJ/EIHsVjeBxP4Ek8hafxDJ7Fc3geL+BFvISX7dmzF2TvFbyK1/A63sCbeAtv4x28i/fwPj7Ah/gIH+MTfIrP8Lk9e/aC7H2BL/EVvsY3+Bbf4Xv8gB/xE37GL/gVv+F3/IE/8Rf+tmfPXpC9f/Av/kMmK5M5BafiNJyOM3AmzsLZOAfn4jycjwtwIS5Cjix79uyF2LsYl+BSXIbLcQWuxFW4GtfgWuREFq7D9bgBNyIXbsLN9uzZC7J3C27Fbbgdd+BO3IW7cQ/uxX24Hw/gQTyEh5GN3MiDvPbs2Quylw/5UQAFUQiFUQRFUQzFUQIlUQqlUQZlUQ7lUQEV7dmzF2SvEiqjCqqiGqqjBmqiFmqjDuqiHuqjARqiERqjCZras2cvyF4zNEcLtEQrtEYbtEU7tEcHdEQndEYXdEU3dEcP9LRnz16QvV7ojT7oi37ojwEYiEEYjCEYimEYjhEYiVEYjTEYa8+evSB74zAeEzARkzAZUzAV0zAdMzATszAbczAX8zAfC7DQnj17QfYWYTGWYCmWYTlWYCVWYTXWYC3WYT02YCM2YTO2YKs9e/aC7G3DduzATuzCbuzBXuzDfhzAQRzCYRzBURzDcZzASXv27AXZi+V/Zc+ePf9w9uyl3Ivlf2XPnj3/cPbspdyL5X9lz549/3D27KXci+V/Zc+ePf9w9uyl3Ivlf2XPnj3/cPbspdyL5X9lz549/3D27KXci+V/Zc+ePf9w9uyl3Ivlf2XPnj3/cPbspdyL5X9lz549/3D27KXci+V/Zc+ePf9w9uyl3Ivlf2XPnj3/cPbspdyL5X9lz549/3D27KXci+V/Zc+ePf9w9uyl3Ivlf2XPnj3/cPbspdyL5X9lz549/3D27KXci+V/Zc+ePf9w9uyl3Ivlf2XPnj3/cPbspdyL5X9lz549/3D27KXci+V/Zc+ePf9w9uyl3Ivlf2XPnj3/cPbspdz7H8Hqb7k=
+  </data>
+ </layer>
+ <layer name="background1" width="250" height="60" opacity="0.96">
+  <data encoding="base64" compression="zlib">
+   eJzt08ENg1AQQ0EK4UL/TebAMSJCSvK9u8xI7sBv2wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAJjv3egF7utq156OfbvvUOtf26cb3DZyub+Wffeod3K9tZ2bfe4bSqp2TfWuep0r2lB5Ol+6o0mCbdVNXBFOmWOgy6SrfTcdBFupUJg8rSfUwbVJFuYfogJf39pw2uvABD4dX7
   </data>
  </layer>
  <layer name="Constructions" width="250" height="60">

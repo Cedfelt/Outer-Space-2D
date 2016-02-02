@@ -28,7 +28,6 @@ public:
   void updateAnimationInterrupt(float delta);
   //void addAnimation(string fileName,string animation_name,int start,int end);
   void updateAnimation(int lastAnimation, int newAnimation);
-  void updateTimers(float delta);
   void addStdMovement(float delta);
   void addJetPackMovement(float delta);
   void addDashMovement(float delta);

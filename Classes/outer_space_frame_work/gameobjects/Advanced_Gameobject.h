@@ -79,7 +79,7 @@ public:
     float groundAcceleration = 8;
     float groundDeaccleration = 0.65;
     cocos2d::Point velocity;
-    float airAcceleration = 8;
+    float airAcceleration = 12;
     float airDeacceleration = 0.994;
     float animationSpeed = 0.2;
     int spriteWidth = 64;
