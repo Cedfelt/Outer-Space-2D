@@ -69,6 +69,9 @@
     <ClCompile Include="..\Classes\go\Laser_Trap.cpp">
       <Filter>src\go</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\go\Hero_Gui.cpp">
+      <Filter>src\go</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -114,6 +117,9 @@
       <Filter>src\outer_space_frame_work\gameobjects</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\go\Laser_Trap.h">
+      <Filter>src\go</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\go\Hero_Gui.h">
       <Filter>src\go</Filter>
     </ClInclude>
   </ItemGroup>

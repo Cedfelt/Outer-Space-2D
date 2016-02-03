@@ -41,7 +41,6 @@ public:
 
 
   //FIELDS
-  cocos2d::Color4B colors[4] = { cocos2d::Color4B::RED,cocos2d::Color4B::YELLOW,cocos2d::Color4B::GREEN,cocos2d::Color4B::GREEN };
   int direction;
   bool jetPack = false;
   float boostPower;
@@ -50,7 +49,6 @@ public:
   float throtle;
   //Guided_Misile *misile;
   bool guided_misile = false;
-  Label *hp_label;
   float cameraOffset;
   float fule_max;
   float fule;
@@ -75,11 +73,5 @@ public:
 
   SoundFx *sFx1;// Attack boost
   SoundFx *sFx2; // Pulsating
-
-
-  // GUI-component
-  cocos2d::ui::Button *button_left;
-  cocos2d::ui::Button *button_right;
-
 };
 

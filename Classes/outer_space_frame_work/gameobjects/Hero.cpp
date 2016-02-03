@@ -36,16 +36,6 @@ Hero::Hero(float sf)
   _eventDispatcher->addEventListenerWithSceneGraphPriority(touchListener, this);
   touch_timer = -1;
 
-  // add a label shows "Hello World"
-  // create and initialize a label
-
-
-  hp_label = Label::createWithTTF("FUEL: 100 %", "fonts/Marker Felt.ttf", 24);
-  hp_label->setTextColor(colors[int((0))]);
-  // position the label on the center of the screen
-#ifdef GUI
-  this->addChild(hp_label, 6);
-#endif
 
   ////////////////////////////
   // ADD UPDATE
@@ -82,59 +72,9 @@ Hero::Hero(float sf)
   toucing_exit = false;
 
 
-  //////////////////////////////
-  // JETPACK BUTTONS
-  button_left = cocos2d::ui::Button::create("jetpack_logo0.png", "pink_sqr.png", "jetpack_logo1.png");
-  button_left->addTouchEventListener([&](Ref* sender, cocos2d::ui::Widget::TouchEventType type) {
-    switch (type)
-    {
-    case ui::Widget::TouchEventType::BEGAN:
-      break;
-    case ui::Widget::TouchEventType::ENDED:
-      cocos2d::log("BUTTON PRESSED");
-      if (jetPack) {
-        jetPack = false;
-        button_left->setBright(true);
-      }
-      else {
-        jetPack = true;
-        button_left->setBright(false);
-      }
-      break;
-    default:
-      break;
-    }
-  });
-#ifdef GUI
-  this->addChild(button_left, 6);
-#endif
-
-  button_right = cocos2d::ui::Button::create("jetpack_logo0.png", "pink_sqr.png", "jetpack_logo1.png");
-  button_right->addTouchEventListener([&](Ref* sender, cocos2d::ui::Widget::TouchEventType type) {
-    switch (type)
-    {
-    case ui::Widget::TouchEventType::BEGAN:
-      break;
-    case ui::Widget::TouchEventType::ENDED:
-      cocos2d::log("BUTTON PRESSED");
-      if (jetPack) {
-        jetPack = false;
-        button_right->setBright(true);
-      }
-      else {
-        jetPack = true;
-        button_right->setBright(false);
-      }
-      break;
-    default:
-      break;
-    }
-  });
+ 
 
   imune = false;
-#ifdef GUI
-  this->addChild(button_right, 6);
-#endif
   player_sprite->setPosition(0.5f, 0);
   setScale(3);
   player_sprite->getTexture()->setAliasTexParameters();
@@ -169,12 +109,7 @@ void Hero::updateGameObject(float delta) {
     hsp = 0;
     vsp = 0;
   }
-  // GUI
-  CCSize winSize = CCDirector::sharedDirector()->getWinSize();
-#ifdef GUI
-  button_left->setPosition(this->convertToNodeSpace(Point(0.05*winSize.width, 0.8*winSize.height)));
-  button_right->setPosition(this->convertToNodeSpace(Point(0.95*winSize.width, 0.8*winSize.height)));
-#endif
+ 
   // Uppdate ViewPoint
   if (vsp<-maxFlySpeed&&cameraOffset>-55) {
     cameraOffset -= (0.8);
@@ -241,142 +176,9 @@ void Hero::setupAnimation() {
 
 
 
-void Hero::updateAnimation(int lastAnimation, int newAnimation) {
+void Hero::updateAnimation(int lastAnimation, int newAnimation) {}
 
-
-}
-
-void Hero::updateAnimationInterrupt(float delta) {
-  //player_sprite->cocos2d::Node::setPosition((int)getPositionX(), (int)getPositionY());
-  //bool forever = true;
-  //// LEFT
-  //if (HP >= 0) {
-  //  if (left) {
-  //    if (!right)
-  //      direction = Hero::LEFT;
-  //  }
-  //  // RIGHT
-  //  if (right) {
-  //    if (!left)
-  //      direction = Hero::RIGHT;
-  //  }
-  //  if (direction == LEFT) {
-  //    lastDir = LEFT;
-
-  //    if (!jump) {
-  //      if (!left || (right&&left)) {
-  //        // IDLE L
-  //        E_NextAnimation = IDLE_LEFT;
-  //      }
-  //      else {
-  //        //WALK L
-  //        E_NextAnimation = LEFT;
-
-  //      }
-  //    }
-  //    else {
-  //      if (dash_timer > 0 && fule > 0) {
-  //        E_NextAnimation = BOOST_LEFT;
-  //      }
-  //      else if (fule > 0 && jetPack && (jump && (left || right))) {
-  //        //FLY L
-  //        //if(!(left&&right)){
-  //        E_NextAnimation = JUMP_LEFT;
-  //        //}
-  //      }
-  //      else {
-  //        // FALL L
-  //        E_NextAnimation = FALL_LEFT;
-  //      }
-  //      // BOOST L
-  //      if (left_dash > 0) {
-  //        E_NextAnimation = BOOST_LEFT;
-  //        if (right_dash < 0.5*dash_max) {
-  //          E_NextAnimation = dieL;
-  //        }
-  //      }
-
-
-  //    }
-  //  }
-  //  else if (direction == RIGHT) {
-  //    if (!jump) {
-  //      if (!right || (right&&left)) {
-  //        // IDLE R
-  //        E_NextAnimation = IDLE_RIGHT;
-  //      }
-  //      else {
-  //        //WALK R
-  //        E_NextAnimation = RIGHT;
-
-  //      }
-  //    }
-  //    else {
-
-  //      if (dash_timer > 0 && fule > 0) {
-  //        E_NextAnimation = BOOST_RIGHT;
-  //      }
-  //      else if (fule > 0 && jetPack && (jump && (left || right))) {
-  //        //FLY R
-  //        //if(!(left&&right)){
-  //        E_NextAnimation = JUMP_RIGHT;
-  //        //}
-  //      }
-  //      else {
-  //        // FALL R
-  //        E_NextAnimation = FALL_RIGHT;
-  //      }
-  //    }
-  //    // BOOST R
-  //    if (right_dash > 0) {
-  //      E_NextAnimation = BOOST_RIGHT;
-  //      if (right_dash < 0.5*dash_max) {
-  //        E_NextAnimation = dieR;
-  //      }
-  //    }
-
-  //  }
-  //  if (HP == 0) {
-  //    HP = -1;
-  //    forever = false;
-  //    if (left) {
-  //      E_NextAnimation = dieL;
-  //    }
-  //    else {
-  //      E_NextAnimation = dieR;
-  //    }
-  //  }
-  //  if (E_LastAnimation != E_NextAnimation) {
-  //    E_LastAnimation = E_NextAnimation;
-  //    player_sprite->stopAllActions();
-  //    if (direction == LEFT) {
-  //      player_sprite->setFlippedX(true);
-  //    }
-  //    else {
-  //      player_sprite->setFlippedX(false);
-  //    }
-  //    if (forever) {
-  //      player_sprite->runAction(RepeatForever::create(Animate::create(animationCache->getAnimation(animatioNames[E_NextAnimation]))));
-
-  //    }
-  //    else {
-  //      player_sprite->runAction((Animate::create(animationCache->getAnimation(animatioNames[E_NextAnimation]))));
-  //    }
-  //  }
-  //}
-
-
-
-  //CCSize winSize = CCDirector::sharedDirector()->getWinSize();
-  //// LABEL
-  //string fule_string = std::to_string(int(fule));
-  //fule_string = "FULE: " + fule_string + " %";
-  //hp_label->setTextColor(colors[int((fule / 33.3))]);
-  //hp_label->setString(fule_string);
-  //hp_label->setPosition(this->convertToNodeSpace(Point(0.05*winSize.width, 0.7*winSize.height)));
-
-
-}
+void Hero::updateAnimationInterrupt(float delta) {}
 
 
 // TOUCH-CONTROL

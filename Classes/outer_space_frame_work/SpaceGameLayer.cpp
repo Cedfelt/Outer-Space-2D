@@ -26,6 +26,7 @@ using namespace std;
 #include "go/Robot_Soldier.h"
 #include "go/Laser_Trap.h"
 //#include "Patrol_Ufo.h"
+#include "go\Hero_Gui.h"
 int counter;
 SpaceGameLayer::SpaceGameLayer() {
   cocos2d::Director::getInstance()->getTextureCache()->removeAllTextures();
@@ -98,8 +99,12 @@ void SpaceGameLayer::super_init(const char*map_name) {
   ////////////////////////////////////
   // SPAWN GAME OBJACTS - SPECIFIC
   getObjects(sf);
+
   if (hero != NULL) {
     setViewPointCenter(hero->getCameraView());
+    Hero_Gui *hg = new Hero_Gui();
+    hg->hero = hero;
+    addChild(hg);
   }
   ////////////////////////////////////
   // MUSIC SETUP - SPECIFIC
