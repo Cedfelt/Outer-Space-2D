@@ -66,6 +66,9 @@
     <ClCompile Include="..\Classes\outer_space_frame_work\gameobjects\SoundFx.cpp">
       <Filter>src\outer_space_frame_work\gameobjects</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\go\Laser_Trap.cpp">
+      <Filter>src\go</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -109,6 +112,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\outer_space_frame_work\gameobjects\SoundFx.h">
       <Filter>src\outer_space_frame_work\gameobjects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\go\Laser_Trap.h">
+      <Filter>src\go</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -231,6 +237,7 @@
     <None Include="..\Resources\Space_Hero2.plist">
       <Filter>resource</Filter>
     </None>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\Resources\stone_back.png">

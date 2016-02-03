@@ -24,6 +24,7 @@ using namespace std;
 //#include "DeathRain.h"
 //#include "MovingPlattform.h"
 #include "go/Robot_Soldier.h"
+#include "go/Laser_Trap.h"
 //#include "Patrol_Ufo.h"
 int counter;
 SpaceGameLayer::SpaceGameLayer() {
@@ -49,8 +50,8 @@ void SpaceGameLayer::super_init(const char*map_name) {
   this->addChild(level);
   level->setPosition(0, 0);
   // Special atribute layers
-  
-  
+
+
   string fgs = "foreground";
   int fg_cnt = 1;
   TMXLayer *fg = level->map->getLayer((fgs + std::to_string(fg_cnt)));
@@ -64,13 +65,13 @@ void SpaceGameLayer::super_init(const char*map_name) {
 
   string bgs = "background";
   int bg_cnt = 1;
-  TMXLayer *bg = level->map->getLayer((bgs+std::to_string(bg_cnt)));
+  TMXLayer *bg = level->map->getLayer((bgs + std::to_string(bg_cnt)));
   while (bg != NULL) {
     background_layers.pushBack(bg);
-    bg = level->map->getLayer( (bgs+std::to_string(bg_cnt)));
+    bg = level->map->getLayer((bgs + std::to_string(bg_cnt)));
     bg_cnt++;
   }
-  
+
 
   ////////////////////////////////////
   // OUTSIDE OF SCREEN RECTANGLE - GENERAL - This rect is used to determine which go's are on/off-screen
@@ -97,20 +98,21 @@ void SpaceGameLayer::super_init(const char*map_name) {
   ////////////////////////////////////
   // SPAWN GAME OBJACTS - SPECIFIC
   getObjects(sf);
-  setViewPointCenter(hero->getCameraView());
-
+  if (hero != NULL) {
+    setViewPointCenter(hero->getCameraView());
+  }
   ////////////////////////////////////
   // MUSIC SETUP - SPECIFIC
-  auto mapGroup =level->getMap()->getProperties();
+  auto mapGroup = level->getMap()->getProperties();
   string track_name = mapGroup["music_track"].asString();
   auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
-  if(track_name==""){
-      current_track = "";
-      audio->stopBackgroundMusic();
+  if (track_name == "") {
+    current_track = "";
+    audio->stopBackgroundMusic();
   }
-  else if(track_name!=current_track){
-      current_track = track_name;
-      audio->playBackgroundMusic(track_name.c_str(),true);
+  else if (track_name != current_track) {
+    current_track = track_name;
+    audio->playBackgroundMusic(track_name.c_str(), true);
   }
 
 }
@@ -143,18 +145,23 @@ void SpaceGameLayer::super_update(float delta) {
   }
 
   // Seperate Player Movement & Collision with other GO's
-  moveGameObject(hero, level, delta);
+  if (hero != NULL) {
+    moveGameObject(hero, level, delta);
+    setViewPointCenter(Point(hero->getCameraView()));
+  }
   gameObjectCollision(&gameObjects, hero, delta);
-  setViewPointCenter(Point(hero->getCameraView()));
+
   update_layers();
-  updateOffScreenRect();
-  checkExits();
+  if (hero != NULL) {
+    updateOffScreenRect();
+    checkExits();
+  }
   for (int i = 0;i < addToGameObjects.size();i++) {
     AdvancedGameobject *go = addToGameObjects.at(0);
-    go->setPosition(go->start_x,go->start_y);
-     addChild(go);
-     gameObjects.pushBack(go);
-     addToGameObjects.eraseObject(go);
+    go->setPosition(go->start_x, go->start_y);
+    addChild(go);
+    gameObjects.pushBack(go);
+    addToGameObjects.eraseObject(go);
   }
   for (int i = 0;i < addToGameObjects.size();i++) {
     addToGameObjects.popBack();
@@ -166,7 +173,7 @@ void SpaceGameLayer::update_layers() {
   for (int i = 0; i < background_layers.size();i++) {
     auto layer_grp = background_layers.at(i)->getProperties();
     float bg_speed = layer_grp["BACKGROUND_SPEED"].asFloat();
-    if(bg_speed == 0) {
+    if (bg_speed == 0) {
       bg_speed = 0.8;
     }
     background_layers.at(i)->setPosition(bg_speed*level->map->convertToNodeSpace(Point(0, 0.)));
@@ -244,6 +251,14 @@ void SpaceGameLayer::getObjects(float sf) {
       this->addChild(fb, 6);
     }
 
+    if (name == "laser_trap") {
+      Laser_Trap *fb = new Laser_Trap();
+      fb->setPosition(x, y);
+      gameObjects.pushBack(fb);
+      fb->target = hero;
+      this->addChild(fb, 6);
+    }
+
     /*if(name == "premade_textbox"){
 
         //PremadeTextBox *tb = new PremadeTextBox(x,y,w,h);
@@ -278,7 +293,7 @@ void SpaceGameLayer::getObjects(float sf) {
         this->addChild(fb,6);
     }
 
-   
+
 
     if(name == "patrol_ufo"){
         Patrol_Ufo *fb = new Patrol_Ufo();
@@ -343,23 +358,25 @@ void SpaceGameLayer::getObjects(float sf) {
     }
 */
   }
-  if (hero->nextEntrance != "") {
-    for (int i = 0;i < exits.size();i++) {
-      if (hero->nextEntrance == exits.at(i)->idString) {
-        hero->toucing_exit = true;
-        hero->setPositionX(exits.at(i)->getPositionX());
-        hero->setPositionY(exits.at(i)->getPositionY());
+  if (hero != NULL) {
+    if (hero->nextEntrance != "") {
+      for (int i = 0;i < exits.size();i++) {
+        if (hero->nextEntrance == exits.at(i)->idString) {
+          hero->toucing_exit = true;
+          hero->setPositionX(exits.at(i)->getPositionX());
+          hero->setPositionY(exits.at(i)->getPositionY());
+        }
       }
     }
-  }
-  for (int i = 0;i < gameObjects.size();i++) {
-    gameObjects.at(i)->target = hero;
-    gameObjects.at(i)->player_screen = &screen;
-    gameObjects.at(i)->map_data = this->level;
-    gameObjects.at(i)->addToGameObjects = &addToGameObjects;
-  }
-  for (int i = 0;i < exits.size();i++) {
-    exits.at(i)->target = hero;
+    for (int i = 0;i < gameObjects.size();i++) {
+      gameObjects.at(i)->target = hero;
+      gameObjects.at(i)->player_screen = &screen;
+      gameObjects.at(i)->map_data = this->level;
+      gameObjects.at(i)->addToGameObjects = &addToGameObjects;
+    }
+    for (int i = 0;i < exits.size();i++) {
+      exits.at(i)->target = hero;
+    }
   }
 }
 
@@ -370,7 +387,7 @@ void SpaceGameLayer::setViewPointCenter(cocos2d::Point position) {
   int x = MAX(position.x, winSize.width / 2);
   int y = MAX(position.y, winSize.height / 2);
   x = MIN(x, (level->getScale()*level->getMap()->getMapSize().width * this->level->getMap()->getTileSize().width) - winSize.width / 2);
-  y = MIN(y, (level->getScale()*level->getMap()->getMapSize().height * level->getMap()->getTileSize().height) - winSize.height/2);
+  y = MIN(y, (level->getScale()*level->getMap()->getMapSize().height * level->getMap()->getTileSize().height) - winSize.height / 2);
   Point actualPosition = Point(x, y);
 
   Point centerOfView = Point(winSize.width / (2), winSize.height / (2));
@@ -387,11 +404,11 @@ SpaceGameLayer::~SpaceGameLayer() {
   stopAllActions();
   //removeFromParentAndCleanup(true);
 
-  for(int i = 0;i<gameObjects.size();i++){
-      gameObjects.at(i)->release();
+  for (int i = 0;i < gameObjects.size();i++) {
+    gameObjects.at(i)->release();
   }
-  for(int i = 0;i<exits.size();i++){
-      exits.at(i)->release();
+  for (int i = 0;i < exits.size();i++) {
+    exits.at(i)->release();
   }
   hero->release();
   /*auto aud = CocosDenshion::SimpleAudioEngine::getInstance();

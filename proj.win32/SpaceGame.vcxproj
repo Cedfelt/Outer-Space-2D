@@ -152,6 +152,7 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
+    <ClCompile Include="..\Classes\go\Laser_Trap.cpp" />
     <ClCompile Include="..\Classes\go\Robot_Soldier.cpp" />
     <ClCompile Include="..\Classes\HelloWorldScene.cpp" />
     <ClCompile Include="..\Classes\outer_space_frame_work\gameobjects\Advanced_Gameobject.cpp" />
@@ -168,6 +169,7 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\AppDelegate.h" />
+    <ClInclude Include="..\Classes\go\Laser_Trap.h" />
     <ClInclude Include="..\Classes\go\Robot_Soldier.h" />
     <ClInclude Include="..\Classes\HelloWorldScene.h" />
     <ClInclude Include="..\Classes\outer_space_frame_work\gameobjects\Advanced_Gameobject.h" />
@@ -224,6 +226,7 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <None Include="..\Resources\TO-DO" />
     <None Include="..\Resources\too_quiet_in_here.aif" />
     <None Include="..\Resources\trial_dungeon.tmx" />
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\Resources\3os3TE.png" />
