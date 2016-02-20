@@ -37,7 +37,7 @@ void Level::loadMap(const char* mapname) {
             }
         }
     }
-    this->setScale(4);
+    this->setScale(3);
     map->setScale(1);
     background = map->getLayer("Background");
     this->addChild(map);

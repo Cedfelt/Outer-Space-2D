@@ -55,11 +55,10 @@ Hero::Hero(float sf)
   cool_down_timer_max = 0.6f;
   dash_timer_max = 0.5f;
   dash_max = 0.9f;
-
   // fule
   fule_max = 100;
   fule = fule_max;
-  fule_consume_rate = 10;
+  fule_consume_rate = 50;
 
   // Double Touch
   double_touch = 0.5f;
@@ -72,11 +71,11 @@ Hero::Hero(float sf)
   toucing_exit = false;
 
 
- 
+
 
   imune = false;
   player_sprite->setPosition(0.5f, 0);
-  setScale(3);
+  setScale(2);
   player_sprite->getTexture()->setAliasTexParameters();
 
   //setAnchorPoint(Point(0.5f,0));
@@ -109,7 +108,7 @@ void Hero::updateGameObject(float delta) {
     hsp = 0;
     vsp = 0;
   }
- 
+
   // Uppdate ViewPoint
   if (vsp<-maxFlySpeed&&cameraOffset>-55) {
     cameraOffset -= (0.8);
@@ -350,20 +349,22 @@ void Hero::addStdMovement(float delta) {
   if (grounded) {
     if (right&&!left) {
       if (hsp < maxWalkSpeed) {
-        hsp += groundAcceleration;
-        setAnimation("WalkR");
-        player_sprite->setScaleX(1);
-        direction = RIGHT;
+        /*hsp += groundAcceleration;*/
+        hsp = maxWalkSpeed;
       }
+      setAnimation("WalkR");
+      player_sprite->setScaleX(1);
+      direction = RIGHT;
 
     }
     else if (left&&!right) {
       if (hsp > -maxWalkSpeed) {
-        hsp -= groundAcceleration;
-        setAnimation("WalkL");
-        player_sprite->setScaleX(-1);
-        direction = LEFT;
+        /*hsp -= groundAcceleration;*/
+        hsp = -maxWalkSpeed;
       }
+      setAnimation("WalkL");
+      player_sprite->setScaleX(-1);
+      direction = LEFT;
     }
     else {
       if (direction == RIGHT) {
@@ -402,13 +403,13 @@ void Hero::addJetPackMovement(float delta) {
   if (!grounded&&!jetPack)
     if (right&&!left) {
       if (hsp < maxFlySpeed) {
-        hsp += 1 * airAcceleration / 0.5f;
+        hsp += 1 * airAcceleration * 0.4f;
         direction = RIGHT;
       }
     }
     else if (left&&!right) {
       if (hsp > -maxFlySpeed) {
-        hsp -= 1 * airAcceleration / 0.5f;
+        hsp -= 1 * airAcceleration * 0.7f;
         direction = LEFT;
       }
     }
@@ -458,7 +459,7 @@ void Hero::addJetPackMovement(float delta) {
     }
 
     // Animation setup
-    if (vsp > 0 || jetPack) {
+    if ((vsp > 0 || jetPack) && !grounded) {
       if (direction == RIGHT) {
         setAnimation("flyR");
         player_sprite->setScaleX(1);
@@ -468,7 +469,7 @@ void Hero::addJetPackMovement(float delta) {
         player_sprite->setScaleX(-1);
       }
     }
-    else if (vsp < 0) {
+    else if (vsp < 0 && !grounded) {
       if (direction == RIGHT) {
         setAnimation("fallR");
         player_sprite->setScaleX(1);
@@ -494,9 +495,14 @@ void Hero::addDashMovement(float delta) {
       player_sprite->setScaleX(-1);
     }
     else {
-      setAnimation("dieL");
-      player_sprite->setScaleX(-1);
-      hsp = -dash_accelaration;
+      if (fule >= 0) {
+        fule -= delta*fule_consume_rate * 0.5f;
+        setAnimation("dieL");
+        player_sprite->setScaleX(-1);
+        hsp = -dash_accelaration;
+      }
+      else
+        left_dash = -1;
     }
   }
   else if (right_dash > 0) {
@@ -510,9 +516,14 @@ void Hero::addDashMovement(float delta) {
       player_sprite->setScaleX(1);
     }
     else {
-      setAnimation("dieR");
-      player_sprite->setScaleX(1);
-      hsp = dash_accelaration;
+      if (fule >= 0) {
+        fule -= delta*fule_consume_rate * 0.5f;
+        setAnimation("dieR");
+        player_sprite->setScaleX(1);
+        hsp = dash_accelaration;
+      }
+      else
+        right_dash = -1;
     }
   }
   // Stop sound when dashings over
