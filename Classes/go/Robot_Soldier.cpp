@@ -19,7 +19,7 @@ Robot_Soldier::Robot_Soldier(){
     hitBoxWidth = 32;
     addHitboxToSprite();
     //drawHitbox();
-    this->setScale(3);
+    this->setScale(2);
     this->schedule(CC_SCHEDULE_SELECTOR(Robot_Soldier::updateAI),0.5);
     AI_STATE = AI_PATROLLING;
     HP = 3;
@@ -78,20 +78,16 @@ int lost_track = 0;
 void Robot_Soldier::updateAI(float delta){
         if(AI_STATE == AI_PATROLLING){
             dumbWalk();
-            player_sprite->setColor(cocos2d::Color3B::YELLOW);
-            if(targetIsVisible(target)||target_state == TARGET_VISIBLE){
+            if(targetIsVisible(target)){
                 cocos2d::log("ALERTED}\n");
                 AI_STATE = AI_ATTACK;
-                target_state = TARGET_VISIBLE;
             }
             return;
         } 
         else if(AI_STATE == AI_ATTACK){
             approachTarget();
-            player_sprite->setColor(cocos2d::Color3B::RED);
             if(targetIsVisible(target)){
                 lost_track = 0;
-                target_state = NO_TRACE_OF_TARGET;
                 shoot_target(1);
             }
             else{

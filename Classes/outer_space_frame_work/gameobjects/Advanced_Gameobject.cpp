@@ -10,6 +10,7 @@
 #include "Advanced_Gameobject.h"
 AdvancedGameobject::AdvancedGameobject() {
   HP = 3;
+  this->unschedule(CC_SCHEDULE_SELECTOR(AdvancedGameobject::updateGameObject));
   this->schedule(CC_SCHEDULE_SELECTOR(AdvancedGameobject::updateGameObject));
   //player_sprite->setAnchorPoint(Point(0,0));
   this->setAnchorPoint(Point(0, 0));

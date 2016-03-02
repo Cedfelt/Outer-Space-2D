@@ -9,7 +9,7 @@
 #include "Laser_Trap.h"
 #include "cocos2d.h"
 
-Laser_Trap::Laser_Trap() {
+Laser_Trap::Laser_Trap(float duration,uint32_t direction,uint32_t range,float delay) {
   player_sprite = cocos2d::Sprite::create();
   player_sprite->setAnchorPoint(Point(0.0, 0));
   this->addChild(player_sprite);
@@ -17,7 +17,7 @@ Laser_Trap::Laser_Trap() {
   hitBoxHeight = 32;
   hitBoxWidth = 32;
   addHitboxToSprite();
-  this->setScale(4);
+  this->setScale(3);
   this->schedule(CC_SCHEDULE_SELECTOR(Laser_Trap::updateAI), 0.5);
   HP = 3;
   check_for_gravity = false;
@@ -32,11 +32,13 @@ Laser_Trap::Laser_Trap() {
   maxWalkSpeed = 0;
   hsp = 0;
   HP = 1;
-  time = 3;
+  time = duration;
   time_counter = time;
   setAnchorPoint(Point(0.5, 0));
   moveWhenOutsideOfScreen = true;
-  for (int i = 1;i < 11;i++) {
+  bool b = true;
+  this->range = range;
+  for (int i = 1;i <= range;i++) {
     laser_sprites[i-1] = Sprite::create("laser_trap.png");
     laser_sprites[i-1]->setAnchorPoint(Point(0.0, 0));
     addChild(laser_sprites[i-1]);
@@ -44,15 +46,23 @@ Laser_Trap::Laser_Trap() {
     laser_sprites[i-1]->runAction(RepeatForever::create(Animate::create(animationCache->getAnimation("laser_mid"))));
     laser_sprites[i - 1]->setOpacity(0);
   }
-  laser_sprites[9]->stopAllActions();
-  laser_sprites[9]->runAction(RepeatForever::create(Animate::create(animationCache->getAnimation("laser_top"))));
+  laser_sprites[range-1]->stopAllActions();
+  laser_sprites[range - 1]->runAction(RepeatForever::create(Animate::create(animationCache->getAnimation("laser_top"))));
   current = 0;
   output = true;
 
+    this->unschedule(CC_SCHEDULE_SELECTOR(AdvancedGameobject::updateGameObject));
+    this->scheduleOnce(CC_SCHEDULE_SELECTOR(Laser_Trap::add_updateFunction),delay);
+  
+
 }
 
+void Laser_Trap::add_updateFunction(float delta) {
+  this->schedule(CC_SCHEDULE_SELECTOR(Laser_Trap::updateGameObject));
+}
 
 void Laser_Trap::updateGameObject(float delta) {
+  Laser_Trap *lt = this;
   if(time_counter>0){
     time_counter -=delta;
     return;
@@ -61,9 +71,9 @@ void Laser_Trap::updateGameObject(float delta) {
   if (output) {
     laser_sprites[current]->setOpacity(0xFF);
     current++;
-    if (current == RANGE) {
+    if (current == range) {
       output = false;
-      current = RANGE - 1;
+      current = range - 1;
       time_counter = time;
     }
   }
