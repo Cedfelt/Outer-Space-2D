@@ -18,7 +18,7 @@ public:
         TS = 8
     };
     short blocked [TILE_COUNT_X][TILE_COUNT_Y];
-	void loadMap(const char* name);
+	void loadMap(const char* name, uint32_t res_scale);
 	TMXTiledMap * getMap();
     TMXLayer walls;
 
@@ -29,6 +29,7 @@ public:
     int getBlocked(float x,float y, int w,int h);
     bool isTiledBlocked(unsigned int x,unsigned int y);
     TMXLayer *background;
+
     
 	Level(void);
 	virtual ~Level(void);

@@ -43,6 +43,7 @@ public:
     
     // VARS
     float hitboxModX;
+    uint32_t resolution_scale;
     float hitboxModY;
     bool toucing_exit;
     bool go_to_nextScene;

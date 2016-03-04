@@ -24,7 +24,7 @@ public:
   virtual void setViewPointCenter(cocos2d::Point position);
   virtual void checkExits();
   virtual void super_update(float delta);
-  virtual void super_init(const char*map_name);
+  virtual void super_init(const char*map_name, uint32_t res_scale);
   virtual void save_player_stats();
   virtual void load_player_stats();
   virtual bool goOnScreen(AdvancedGameobject *obj);

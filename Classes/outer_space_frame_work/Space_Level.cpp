@@ -27,7 +27,7 @@ cocos2d::Scene* Space_Level ::createScene(string m_n)
 
 bool Space_Level::init()
 {
-    super_init(cocos2d::UserDefault::getInstance()->getStringForKey("current_level").c_str());
+    super_init(cocos2d::UserDefault::getInstance()->getStringForKey("current_level").c_str(), cocos2d::UserDefault::getInstance()->getIntegerForKey("resolution_factor"));
     return true;
 }
 

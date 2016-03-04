@@ -43,14 +43,14 @@ Hero::Hero(float sf)
 
   ////////////////////////////
   // OBJECT SETTINGS
-  maxWalkSpeed = 220;
-  maxFlySpeed = 270;
-  groundAcceleration = 8;
-  groundDeaccleration = 0.65;
-  airAcceleration = 1.4;
-  airDeacceleration = 0.998;
+  maxWalkSpeed = 220/2*sf;
+  maxFlySpeed = 270/2 * sf;
+  groundAcceleration = 8 / 2 * sf;;
+  groundDeaccleration = 0.65 / 2 * sf;;
+  airAcceleration = 1.4 / 2;;
+  airDeacceleration = 0.998;;
   grounded = false;
-  dash_accelaration = 650;
+  dash_accelaration = 650 / 2 * sf;
   cool_down_timer = 0;
   cool_down_timer_max = 0.6f;
   dash_timer_max = 0.5f;
@@ -75,7 +75,7 @@ Hero::Hero(float sf)
 
   imune = false;
   player_sprite->setPosition(0.5f, 0);
-  setScale(2);
+  setScale(1);
   player_sprite->getTexture()->setAliasTexParameters();
 
   //setAnchorPoint(Point(0.5f,0));

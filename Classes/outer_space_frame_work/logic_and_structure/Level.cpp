@@ -5,7 +5,7 @@ using namespace std;
 USING_NS_CC;
 
 
-void Level::loadMap(const char* mapname) {
+void Level::loadMap(const char* mapname,uint32_t res_scale) {
 
 	map = TMXTiledMap::create(mapname);
     map->setAnchorPoint(Point(0,0));
@@ -37,7 +37,7 @@ void Level::loadMap(const char* mapname) {
             }
         }
     }
-    this->setScale(3);
+    this->setScale(1*res_scale);
     map->setScale(1);
     background = map->getLayer("Background");
     this->addChild(map);
@@ -182,12 +182,12 @@ int Level::getBlocked(float x,float y, int w,int h){
     Rect player_rect;
     Rect tile_rect;
     player_rect.setRect(x, y, w, h);
-    int x_min = (x/(TS*sf));
-    int x_max = ((x+w)/(TS*sf));
-    int y_min = (y/(TS*sf))-1;
-    int y_max = ((y+h)/(TS*sf))-1;
-    int xRange = x_min + x_max-x_min+1;
-    int yRange = y_min + y_max-y_min+2;
+    uint32_t x_min = (x/(TS*sf));
+    uint32_t x_max = ((x+w)/(TS*sf));
+    uint32_t y_min = (y/(TS*sf))-1;
+    uint32_t y_max = ((y+h)/(TS*sf))-1;
+    uint32_t xRange = x_min + x_max-x_min+1;
+    uint32_t yRange = y_min + y_max-y_min+2;
     for(int xx = x_min; xx<xRange;xx++){
         for(int yy = y_min; yy<yRange;yy++){
             

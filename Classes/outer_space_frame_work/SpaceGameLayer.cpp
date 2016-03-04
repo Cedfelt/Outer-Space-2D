@@ -28,6 +28,7 @@ using namespace std;
 //#include "Patrol_Ufo.h"
 #include "go\Hero_Gui.h"
 int counter;
+uint32_t scale = 1;
 SpaceGameLayer::SpaceGameLayer() {
   cocos2d::Director::getInstance()->getTextureCache()->removeAllTextures();
   ///////////////////////////////
@@ -36,8 +37,8 @@ SpaceGameLayer::SpaceGameLayer() {
   counter = 0;
 }
 
-void SpaceGameLayer::super_init(const char*map_name) {
-
+void SpaceGameLayer::super_init(const char*map_name,uint32_t res_scale) {
+  scale = res_scale;
   cocos2d::Layer::init();
   auto director = cocos2d::Director::getInstance();
   this->setScale(1);
@@ -47,7 +48,7 @@ void SpaceGameLayer::super_init(const char*map_name) {
   ////////////////////////////////////
   // LEVEL-SETUP - GENERAL
   level = new Level();
-  level->loadMap(map_name);
+  level->loadMap(map_name,scale);
   this->addChild(level);
   level->setPosition(0, 0);
   // Special atribute layers
@@ -63,11 +64,13 @@ void SpaceGameLayer::super_init(const char*map_name) {
     fg = level->map->getLayer((fgs + std::to_string(fg_cnt)));
   }
 
-
+ 
   string bgs = "background";
   int bg_cnt = 1;
   TMXLayer *bg = level->map->getLayer((bgs + std::to_string(bg_cnt)));
+ 
   while (bg != NULL) {
+    bg->setScale(scale);
     background_layers.pushBack(bg);
     bg = level->map->getLayer((bgs + std::to_string(bg_cnt)));
     bg_cnt++;
@@ -229,7 +232,7 @@ void SpaceGameLayer::getObjects(float sf) {
     string type = vm["type"].asString();
 
     if (name == "player_start") {
-      hero = new Hero(sf);
+      hero = new Hero(scale);
       load_player_stats();
       hero->setPosition(x, y);
       this->addChild(hero, 6);
@@ -374,6 +377,7 @@ void SpaceGameLayer::getObjects(float sf) {
           hero->toucing_exit = true;
           hero->setPositionX(exits.at(i)->getPositionX());
           hero->setPositionY(exits.at(i)->getPositionY());
+          hero->setScale(hero->getScale()*scale);
         }
       }
     }
