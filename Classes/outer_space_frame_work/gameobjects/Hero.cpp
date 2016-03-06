@@ -5,6 +5,7 @@
 
 Hero::Hero(float sf)
 {
+  this->resolution_scale = sf;
   cameraOffset = 0;
   using namespace std;
   using namespace cocos2d;
@@ -19,12 +20,11 @@ Hero::Hero(float sf)
   player_sprite->setPositionX(256);
   player_sprite->setPositionY(256);
   player_sprite->setAnchorPoint(Point(0.5f, 0));
-
   // INIT POS
   velocity = Point(0, 0);
   //position = Point(256,256);
-  hitBoxWidth = 30;
-  hitBoxHeight = 63;
+  hitBoxWidth = 15*sf;
+  hitBoxHeight = 31*sf;
   vsp = 0;
 
   // SET UP TOUCH
@@ -59,11 +59,12 @@ Hero::Hero(float sf)
   fule_max = 100;
   fule = fule_max;
   fule_consume_rate = 50;
-
+  maxFlySpeed *= resolution_scale;
   // Double Touch
   double_touch = 0.5f;
   // DASH
   dash_timer = 0;
+  MAX_JUMP_SPEED *= resolution_scale;
 
 
   // landed
@@ -75,7 +76,7 @@ Hero::Hero(float sf)
 
   imune = false;
   player_sprite->setPosition(0.5f, 0);
-  setScale(1);
+  setScale(resolution_scale);
   player_sprite->getTexture()->setAliasTexParameters();
 
   //setAnchorPoint(Point(0.5f,0));

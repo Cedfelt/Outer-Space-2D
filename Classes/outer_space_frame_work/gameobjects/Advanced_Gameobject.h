@@ -83,6 +83,7 @@ public:
     float airAcceleration = 12;
     float airDeacceleration = 0.994;
     float animationSpeed = 0.2;
+    float MAX_JUMP_SPEED = 80.0f;
     int spriteWidth = 64;
     int spriteHeight = 64;
     int E_LastAnimation;

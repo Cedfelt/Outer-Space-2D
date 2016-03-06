@@ -22,6 +22,5 @@ const float PLAYER_JUMP_VELOCITY = 10.0f;
 const float DAMPING = 0.87f;
 const float GRAVITY = -1.5*120.0f;
 const float MAX_FALL_SPEED = -160.0f*1.5;
-const float MAX_JUMP_SPEED = 80.0f;
 const float JET_PACK = 0.49f;
 
