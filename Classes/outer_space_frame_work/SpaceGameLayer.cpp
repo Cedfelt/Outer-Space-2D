@@ -377,7 +377,6 @@ void SpaceGameLayer::getObjects(float sf) {
           hero->toucing_exit = true;
           hero->setPositionX(exits.at(i)->getPositionX());
           hero->setPositionY(exits.at(i)->getPositionY());
-          hero->setScale(hero->getScale()*scale);
         }
       }
     }
