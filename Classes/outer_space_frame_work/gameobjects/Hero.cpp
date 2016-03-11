@@ -14,12 +14,7 @@ Hero::Hero(float sf)
   setupAnimation();
   boostPower = 5;
   idString = "player";
-  // SET UP SPRITE
-  //player_sprite = cocos2d::Sprite::create("bellafigur.png");
-//player_sprite = cocos2d::Sprite::create("pink_sqr.png");
-  player_sprite->setPositionX(256);
-  player_sprite->setPositionY(256);
-  player_sprite->setAnchorPoint(Point(0.5f, 0));
+  // SET UP 
   // INIT POS
   velocity = Point(0, 0);
   //position = Point(256,256);
@@ -36,7 +31,7 @@ Hero::Hero(float sf)
   _eventDispatcher->addEventListenerWithSceneGraphPriority(touchListener, this);
   touch_timer = -1;
 
-
+  setAnchorPoint(Point(0.5f,0.5f));
   ////////////////////////////
   // ADD UPDATE
   this->schedule(CC_SCHEDULE_SELECTOR(Hero::updateAnimationInterrupt));
@@ -65,7 +60,7 @@ Hero::Hero(float sf)
   // DASH
   dash_timer = 0;
   MAX_JUMP_SPEED *= resolution_scale;
-
+  drawHitbox();
 
   // landed
   landed = false;
@@ -75,10 +70,11 @@ Hero::Hero(float sf)
 
 
   imune = false;
-  player_sprite->setPosition(0.5f, 0);
+  //player_sprite->setPosition(0.5f, 0);
   setScale(resolution_scale);
   player_sprite->getTexture()->setAliasTexParameters();
 
+  
   //setAnchorPoint(Point(0.5f,0));
   //drawHitbox();
   addHitboxToSprite();
@@ -557,8 +553,8 @@ bool Hero::hurt(int dmg, AdvancedGameobject *other_obj) {
   }
   else {
     other_obj->hurt(1, this);
-    other_obj->hsp = hsp*1.4;
-    other_obj->vsp = abs(hsp);
+    //other_obj->hsp = hsp*1.4;
+    //other_obj->vsp = abs(hsp);
   }
   return 0;
 }

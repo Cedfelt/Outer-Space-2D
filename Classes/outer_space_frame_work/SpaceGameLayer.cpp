@@ -264,7 +264,8 @@ void SpaceGameLayer::getObjects(float sf) {
       uint32_t range = vm["range"].asInt();
       float delay = vm["delay"].asFloat();
       float duration = vm["duration"].asFloat();
-      Laser_Trap *fb = new Laser_Trap(duration,direction, range, delay);
+      float off_time = vm["off_time"].asFloat();
+      Laser_Trap *fb = new Laser_Trap(scale,duration,off_time,direction, range, delay);
       fb->setPosition(x, y);
       gameObjects.pushBack(fb);
       fb->target = hero;

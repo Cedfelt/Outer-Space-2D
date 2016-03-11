@@ -25,7 +25,7 @@ void AppDelegate::initGLContextAttrs()
 
 bool AppDelegate::applicationDidFinishLaunching() {
   // initialize director
-  const uint32_t scale = 1;
+  const uint32_t scale = 2;
   uint32_t res_x = scale*1136 / 2;
   uint32_t res_y = scale * 640 / 2;
 

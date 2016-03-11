@@ -52,6 +52,21 @@ void AdvancedGameobject::addAnimation(std::string fileName,std::string animation
     animationCache->addAnimation(cocos2d::Animation::createWithSpriteFrames(animFrames,animSpeed), animation_name);
 }
 
+void AdvancedGameobject::addAnimation(std::string fileName, std::string animation_name, const int start, const int end, float animSpeed, const bool mirror) {
+  cocos2d::Vector<cocos2d::SpriteFrame*> animFrames(end - start);
+  std::string fileFormat = "%i.png";
+  std::string fileName_update = fileName + fileFormat;
+
+  for (int i = start;i <= end;i++) {
+    auto name = cocos2d::String::createWithFormat(fileName_update.c_str(), i);
+    auto frame = spriteFrameCache->getSpriteFrameByName(name->getCString());
+    frame->getTexture()->setAliasTexParameters();
+    animFrames.pushBack(frame);
+  }
+  auto a = cocos2d::Animation::createWithSpriteFrames(animFrames, animSpeed);
+  animationCache->addAnimation(a, animation_name);
+}
+
 void AdvancedGameobject::flash(int times, float interval){
     this->schedule(CC_SCHEDULE_SELECTOR(AdvancedGameobject::flash_sprite),interval,times,0);
 }
@@ -114,6 +129,7 @@ void AdvancedGameobject::drawHitbox(){
     rectangle[3] = cocos2d::Vec2(0-ap.x*hitBoxWidth,hitBoxHeight-ap.y*hitBoxHeight);
     rectNode->drawPolygon(rectangle, 4, cocos2d::Color4F::RED, 1, cocos2d::Color4F::BLUE);
     rectNode->setAnchorPoint(getAnchorPoint());
+    rectNode->setScale(1.0 / resolution_scale);
     addChild(rectNode,-1);
 }
 

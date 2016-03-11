@@ -25,6 +25,7 @@ public:
     ~AdvancedGameobject();
     virtual void colide(AdvancedGameobject *other_obj);
     virtual void addAnimation(std::string fileName,std::string animation_name,int start,int end,float animSpeed);
+    virtual void addAnimation(std::string fileName, std::string animation_name, const int start, const int end, float animSpeed, const bool mirror);
     virtual void updateGameObject(float delta);
     virtual float angleToTarget(AdvancedGameobject *other_obj);
     virtual bool hurt(int dmg,AdvancedGameobject *other_obj);

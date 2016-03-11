@@ -15,9 +15,10 @@ USING_NS_CC;
 #define MAX_CAPACITY 15
 class Laser_Trap : public EnemyGameObject{
 public:
-    Laser_Trap(float duration, uint32_t direction, uint32_t range, float delay);
+    Laser_Trap(float resolution_scale, float output_time, float input_time, uint32_t direction, uint32_t range, float delay);
     int range;
     void colide(AdvancedGameobject *other_obj);
+    bool hurt(int dmg, AdvancedGameobject *other_obj);
     ~Laser_Trap();
     void updateGameObject(float delta);
     void add_updateFunction(float delta);
@@ -25,6 +26,8 @@ public:
     Sprite *laser_sprites[MAX_CAPACITY];
     int current;
     bool output;
-    float time;
-    float time_counter;
+    float o_time;
+    float i_time;
+    float laser_delay;
+    float ot_counter;
 };
