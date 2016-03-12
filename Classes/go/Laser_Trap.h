@@ -12,7 +12,7 @@
 #include "outer_space_frame_work/gameobjects/EnemyGameobject.h"
 
 USING_NS_CC;
-#define MAX_CAPACITY 15
+#define MAX_CAPACITY 25
 class Laser_Trap : public EnemyGameObject{
 public:
     Laser_Trap(float resolution_scale, float output_time, float input_time, uint32_t direction, uint32_t range, float delay);

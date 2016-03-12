@@ -119,7 +119,8 @@ void AdvancedGameobject::setZone(float w,float h){
 }
 
 void AdvancedGameobject::drawHitbox(){
-    auto ap = this->getAnchorPoint();
+
+  auto ap = this->getAnchorPoint();
    
     cocos2d::DrawNode *rectNode = cocos2d::DrawNode::create();
     cocos2d::Vec2 rectangle[4];

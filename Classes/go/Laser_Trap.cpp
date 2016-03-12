@@ -17,15 +17,17 @@ enum LASER_DIR {
 };
 
 Laser_Trap::Laser_Trap(float resolution_scale, float output_time, float input_time, uint32_t direction, uint32_t range, float delay) {
-
+  CCASSERT(range<MAX_CAPACITY,"LASER BUGG TO SMALL");
+  this->resolution_scale = resolution_scale;
   player_sprite = cocos2d::Sprite::create();
-  player_sprite->setAnchorPoint(Point(0.0, 0));
+  setAnchorPoint(Point(0.5, 0));
   this->addChild(player_sprite);
+  player_sprite->setAnchorPoint(Point(0.5,0));
+
   hsp = 0;
-  hitBoxHeight = 8 * resolution_scale;
-  hitBoxWidth = 8 * range*resolution_scale;
-  drawHitbox();
-  addHitboxToSprite();
+  hitBoxHeight = 8* range * resolution_scale;
+  hitBoxWidth = 8 *resolution_scale;
+  
   imune = true;
   this->setScale(resolution_scale);
   this->schedule(CC_SCHEDULE_SELECTOR(Laser_Trap::updateAI), 0.5);
@@ -52,34 +54,36 @@ Laser_Trap::Laser_Trap(float resolution_scale, float output_time, float input_ti
   this->range = range;
   for (int i = 1;i <= range;i++) {
     laser_sprites[i - 1] = Sprite::create("laser_trap.png");
-    laser_sprites[i - 1]->setAnchorPoint(Point(0.0, 0));
+    laser_sprites[i - 1]->setAnchorPoint(Point(0.5, 0));
     addChild(laser_sprites[i - 1]);
     laser_sprites[i - 1]->setPosition(0, i * 8);
     laser_sprites[i - 1]->runAction(RepeatForever::create(Animate::create(animationCache->getAnimation("laser_mid"))));
     laser_sprites[i - 1]->setOpacity(0);
+    addChild(laser_sprites[i - 1]);
   }
   laser_sprites[range - 1]->stopAllActions();
   laser_sprites[range - 1]->runAction(RepeatForever::create(Animate::create(animationCache->getAnimation("laser_top_down"))));
   current = 0;
   if (direction == LASER_UP) {
-
+    addHitboxToSprite();
+    /*drawHitbox();*/
   }
   else if (direction == LASER_DOWN) {
-    setAnchorPoint(Point(0.5, 0));
     this->setScaleY(-1 * this->getScaleY());
   }
   else if (direction == LASER_LEFT) {
-    setAnchorPoint(Point(0.5, 0));
+    
     this->setRotation(-90);
   }
   else if (direction == LASER_RIGHT) {
-    setAnchorPoint(Point(0.5, 0));
     this->setRotation(90);
   }
   output = true;
   ot_counter = o_time;
   ot_counter = 0;
-
+  this->unschedule(CC_SCHEDULE_SELECTOR(AdvancedGameobject::updateGameObject));
+  add_updateFunction(delay);
+  
 }
 
 void Laser_Trap::add_updateFunction(float delta) {
@@ -109,9 +113,6 @@ void Laser_Trap::updateGameObject(float delta) {
       output = true;
       current = 0;
       ot_counter = i_time;
-      this->unschedule(CC_SCHEDULE_SELECTOR(AdvancedGameobject::updateGameObject));
-      this->unschedule(CC_SCHEDULE_SELECTOR(Laser_Trap::updateGameObject));
-      this->scheduleOnce(CC_SCHEDULE_SELECTOR(Laser_Trap::add_updateFunction), laser_delay);
     }
   }
 }
@@ -121,8 +122,8 @@ void Laser_Trap::updateAI(float delta) {
 }
 
 void Laser_Trap::colide(AdvancedGameobject *other_obj) {
-  if (output) {
-    if (other_obj->idString == "player"&&HP>0) {
+  if (!output) {
+    if (other_obj->idString == "player"&&HP>0 && !other_obj->imune) {
       bump_and_hurt(other_obj);
     }
   }

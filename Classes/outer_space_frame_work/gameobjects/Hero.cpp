@@ -5,6 +5,7 @@
 
 Hero::Hero(float sf)
 {
+  setAnchorPoint(Point(0.5f, 0));
   this->resolution_scale = sf;
   cameraOffset = 0;
   using namespace std;
@@ -12,6 +13,7 @@ Hero::Hero(float sf)
   leftCounter = 0;
   rightCounter = 0;
   setupAnimation();
+  player_sprite->setAnchorPoint(Point(0.5,0));
   boostPower = 5;
   idString = "player";
   // SET UP 
@@ -31,7 +33,7 @@ Hero::Hero(float sf)
   _eventDispatcher->addEventListenerWithSceneGraphPriority(touchListener, this);
   touch_timer = -1;
 
-  setAnchorPoint(Point(0.5f,0.5f));
+  //setAnchorPoint(Point(0.5f,0.5f));
   ////////////////////////////
   // ADD UPDATE
   this->schedule(CC_SCHEDULE_SELECTOR(Hero::updateAnimationInterrupt));
@@ -75,8 +77,7 @@ Hero::Hero(float sf)
   player_sprite->getTexture()->setAliasTexParameters();
 
   
-  //setAnchorPoint(Point(0.5f,0));
-  //drawHitbox();
+  drawHitbox();
   addHitboxToSprite();
   sFx1 = new SoundFx("jet_pack_boost.aif");
   addChild(sFx1);
