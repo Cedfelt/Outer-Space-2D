@@ -94,7 +94,7 @@ void EnemyGameObject::bump_and_hurt(AdvancedGameobject *other_obj){
     }
     other_obj->hsp = 100*xForce;
     other_obj->vsp = 100*yForce;
-    other_obj->hurt(1,this);
+    other_obj->hurt(dmg_power,this);
 }
 
 bool EnemyGameObject::inZone(){

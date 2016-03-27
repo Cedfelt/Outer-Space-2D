@@ -12,7 +12,7 @@
 Projectile::Projectile(float x,float y){
     player_sprite = cocos2d::Sprite::create("space_pig1.png");
     player_sprite->setAnchorPoint(Point(0,0));
-    //this->addChild(player_sprite);
+    this->addChild(player_sprite);
     setPosition(x,y);
     right = true;
     hitBoxHeight = 16;

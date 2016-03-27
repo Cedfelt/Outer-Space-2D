@@ -2,28 +2,35 @@
 #include "globals.h"
 
 //#define GUI
-
+using namespace std;
+using namespace cocos2d;
 Hero::Hero(float sf)
 {
-  setAnchorPoint(Point(0.5f, 0));
   this->resolution_scale = sf;
+  hitBoxWidth = 15 * sf;
+  hitBoxHeight = 31 * sf;
+  setScale(resolution_scale);
+  maxFlySpeed *= resolution_scale;
+  MAX_JUMP_SPEED *= resolution_scale;
+  maxWalkSpeed = 220 / 2 * sf;
+  maxFlySpeed = 270 / 2 * sf;
+  groundAcceleration = 8 / 2 * sf;;
+  groundDeaccleration = 0.65 / 2 * sf;;
+  dash_accelaration = 650 / 2 * sf;
+
+  setAnchorPoint(Point(0.5f, 0));
   cameraOffset = 0;
-  using namespace std;
-  using namespace cocos2d;
-  leftCounter = 0;
-  rightCounter = 0;
   setupAnimation();
   player_sprite->setAnchorPoint(Point(0.5,0));
   boostPower = 5;
   idString = "player";
+  vsp = 0;
+  leftCounter = 0;
+  rightCounter = 0;
   // SET UP 
   // INIT POS
-  velocity = Point(0, 0);
+  /*velocity = Point(0, 0);*/
   //position = Point(256,256);
-  hitBoxWidth = 15*sf;
-  hitBoxHeight = 31*sf;
-  vsp = 0;
-
   // SET UP TOUCH
   auto touchListener = EventListenerTouchAllAtOnce::create();
   touchListener->onTouchesBegan = CC_CALLBACK_2(Hero::onTouchBegan, this);
@@ -40,14 +47,11 @@ Hero::Hero(float sf)
 
   ////////////////////////////
   // OBJECT SETTINGS
-  maxWalkSpeed = 220/2*sf;
-  maxFlySpeed = 270/2 * sf;
-  groundAcceleration = 8 / 2 * sf;;
-  groundDeaccleration = 0.65 / 2 * sf;;
+ 
   airAcceleration = 1.4 / 2;;
   airDeacceleration = 0.998;;
   grounded = false;
-  dash_accelaration = 650 / 2 * sf;
+  
   cool_down_timer = 0;
   cool_down_timer_max = 0.6f;
   dash_timer_max = 0.5f;
@@ -56,12 +60,12 @@ Hero::Hero(float sf)
   fule_max = 100;
   fule = fule_max;
   fule_consume_rate = 50;
-  maxFlySpeed *= resolution_scale;
+  
   // Double Touch
   double_touch = 0.5f;
   // DASH
   dash_timer = 0;
-  MAX_JUMP_SPEED *= resolution_scale;
+  
   drawHitbox();
 
   // landed
@@ -73,7 +77,7 @@ Hero::Hero(float sf)
 
   imune = false;
   //player_sprite->setPosition(0.5f, 0);
-  setScale(resolution_scale);
+  
   player_sprite->getTexture()->setAliasTexParameters();
 
   
@@ -87,6 +91,9 @@ Hero::Hero(float sf)
 }
 
 void Hero::updateGameObject(float delta) {
+  if (HP <= 0) {
+    return;
+  }
   if (on_platform) {
     jump = false;
     grounded = true;
@@ -102,10 +109,7 @@ void Hero::updateGameObject(float delta) {
       addDashMovement(delta);
     }
   }
-  else if (HP == 0) {
-    hsp = 0;
-    vsp = 0;
-  }
+  
 
   // Uppdate ViewPoint
   if (vsp<-maxFlySpeed&&cameraOffset>-55) {
@@ -481,19 +485,19 @@ void Hero::addJetPackMovement(float delta) {
 }
 void Hero::addDashMovement(float delta) {
   vsp = 0;
-  attacking = true;
+  attacking = false;
   if (left_dash > 0) {
     direction = LEFT;
     left_dash -= delta;
     if (left_dash > 0.5*dash_max) {
       hsp = 0;
       vsp = 0;
-      attacking = false;
       setAnimation("dashL");
       player_sprite->setScaleX(-1);
     }
     else {
       if (fule >= 0) {
+        attacking = true;
         fule -= delta*fule_consume_rate * 0.5f;
         setAnimation("dieL");
         player_sprite->setScaleX(-1);
@@ -509,12 +513,12 @@ void Hero::addDashMovement(float delta) {
     if (right_dash > 0.5*dash_max) {
       hsp = 0;
       vsp = 0;
-      attacking = false;
       setAnimation("dashR");
       player_sprite->setScaleX(1);
     }
     else {
       if (fule >= 0) {
+        attacking = true;
         fule -= delta*fule_consume_rate * 0.5f;
         setAnimation("dieR");
         player_sprite->setScaleX(1);
@@ -539,7 +543,7 @@ Point Hero::getCameraView() {
 }
 
 bool Hero::hurt(int dmg, AdvancedGameobject *other_obj) {
-  if (!imune&&!attacking) {
+  if ((!imune&&!attacking)||(dmg==HUGE_AMOUNT_OF_DMG)) {
     this->imune = true;
     this->HP -= dmg;
     this->schedule(CC_SCHEDULE_SELECTOR(AdvancedGameobject::resetImune), 1);

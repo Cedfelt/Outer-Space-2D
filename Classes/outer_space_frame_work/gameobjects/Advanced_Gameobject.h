@@ -71,8 +71,9 @@ public:
     std::string idString;
     //Point position;
     cocos2d::Rect zone;
-    
-    
+    enum {
+      HUGE_AMOUNT_OF_DMG = 9999,
+    };
     cocos2d::SpriteFrameCache *spriteFrameCache;
     cocos2d::AnimationCache *animationCache;
     // OBJECT SETTINGS
@@ -105,7 +106,7 @@ public:
     bool removeObj;
     cocos2d::Vector<AdvancedGameobject*> *addToGameObjects;
     cocos2d::Layer *currentGameLayer;
-    
+    size_t dmg_power;
     
     
     

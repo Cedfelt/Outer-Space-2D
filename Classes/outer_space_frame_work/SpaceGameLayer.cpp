@@ -252,7 +252,7 @@ void SpaceGameLayer::getObjects(float sf) {
     }
 
     if (name == "robot_soldier") {
-      Robot_Soldier *fb = new Robot_Soldier();
+      Robot_Soldier *fb = new Robot_Soldier(scale);
       fb->setPosition(x, y);
       gameObjects.pushBack(fb);
       fb->target = hero;

@@ -13,7 +13,7 @@
 
 class Robot_Soldier : public EnemyGameObject{
 public:
-    Robot_Soldier();
+    Robot_Soldier(const float scale);
     void colide(AdvancedGameobject *other_obj);
     ~Robot_Soldier();
     void updateGameObject(float delta);

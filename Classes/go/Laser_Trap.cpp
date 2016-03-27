@@ -17,18 +17,19 @@ enum LASER_DIR {
 };
 
 Laser_Trap::Laser_Trap(float resolution_scale, float output_time, float input_time, uint32_t direction, uint32_t range, float delay) {
-  CCASSERT(range<MAX_CAPACITY,"LASER BUGG TO SMALL");
+
+  resolution_scale *= 2;
+  CCASSERT(range < MAX_CAPACITY, "LASER BUGG TO SMALL");
   this->resolution_scale = resolution_scale;
   player_sprite = cocos2d::Sprite::create();
   setAnchorPoint(Point(0.5, 0));
   this->addChild(player_sprite);
-  player_sprite->setAnchorPoint(Point(0.5,0));
-
-  hsp = 0;
-  hitBoxHeight = 8* range * resolution_scale;
+  player_sprite->setAnchorPoint(Point(0.5, 0));
+  dmg_power = HUGE_AMOUNT_OF_DMG;
+   hitBoxHeight = 8* range * resolution_scale;
   hitBoxWidth = 8 *resolution_scale;
   
-  imune = true;
+ 
   this->setScale(resolution_scale);
   this->schedule(CC_SCHEDULE_SELECTOR(Laser_Trap::updateAI), 0.5);
   HP = 3;
