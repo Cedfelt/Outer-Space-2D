@@ -69,7 +69,7 @@ void EnemyGameObject::shoot_target(float delta){
     float ang = angleToTarget(target);
     float xSpeed = cos(ang);
     float ySpeed = sin(ang);
-    Projectile *proj = new Projectile(getPositionX()+hitBoxWidth/2,getPositionY()+hitBoxHeight/2);
+    Projectile *proj = new Projectile(this->resolution_scale);
     addToGameObjects->pushBack(proj);
     proj->hsp = xSpeed*proj->maxFlySpeed+hitBoxWidth/2;
     proj->vsp = ySpeed*proj->maxFlySpeed+hitBoxHeight/2;

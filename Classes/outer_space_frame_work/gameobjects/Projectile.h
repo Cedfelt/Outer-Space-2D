@@ -13,7 +13,7 @@
 
 class Projectile : public EnemyGameObject{
 public:
-    Projectile(float x,float y);
+    Projectile(float scale);
     void colide(AdvancedGameobject *other_obj);
     ~Projectile();
     void updateGameObject(float delta);
